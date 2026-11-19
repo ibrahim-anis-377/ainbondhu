@@ -22,6 +22,11 @@
     del: function (k) { try { localStorage.removeItem(k); } catch (e) { /* ignore */ } }
   };
   state.user = store.get('ab_user');
+  // "Continue without signing in" is remembered on this device for 12 hours, so new tabs skip the sign-in screen.
+  var GUEST_HOURS = 12;
+  state.guest = (function () { var g = store.get('ab_guest_until'); return typeof g === 'number' && g > Date.now(); })();
+  function setGuest(on) { state.guest = on; if (on) store.set('ab_guest_until', Date.now() + GUEST_HOURS * 3600 * 1000); else store.del('ab_guest_until'); }
+  var GATE_PHOTO = { src: 'https://images.unsplash.com/photo-1587740896339-96a76170508d?auto=format&fit=crop&w=1400&q=70', page: 'https://unsplash.com/photos/small-gold-balance-scale-on-colorful-wood-j06gLuKK0GM', author: 'Elena Mozhvilo', authorUrl: 'https://unsplash.com/@miracleday' };
   state.login = { step: 'phone', phone: '', error: null };
   function normPhone(input) {
     var d = String(input || '').replace(/[০-৯]/g, function (x) { return String('০১২৩৪৫৬৭৮৯'.indexOf(x)); }).replace(/[^\d+]/g, '');
@@ -434,8 +439,7 @@
       '<div class="card"><ol>' + AGENTS.map(function (a) { return '<li><strong>' + esc(t('a_' + a)) + ':</strong> ' + esc(t('d_' + a)) + '. <span class="chip ' + (code[a] ? 'amber' : '') + '">' + esc(t(code[a] ? 'arch_code' : 'arch_ai')) + '</span></li>'; }).join('') + '</ol></div>';
   }
 
-  function pageLogin() {
-    if (state.user) return '<h1>' + esc(t('login_title')) + '</h1><div class="card"><p>' + esc(t('login_signed_in')) + ' <strong>' + esc(maskPhone(state.user.phone)) + '</strong></p><div class="row"><a class="btn" href="#cases">' + esc(t('nav_cases')) + '</a><button class="btn ghost" data-act="signout">' + esc(t('signout')) + '</button></div></div>';
+  function loginForm() {
     var L2 = state.login;
     var err = L2.error ? '<div class="banner err" role="alert">' + esc(L2.error) + '</div>' : '';
     var demo = '<div class="banner demo" role="note">' + esc(t('login_demo')) + '</div>';
@@ -445,8 +449,28 @@
       : '<p>' + esc(t('login_code_sent')) + ' <strong>' + esc(maskPhone(L2.phone)) + '</strong></p><p class="banner info">' + esc(t('login_demo_code')) + ' <strong>' + DEMO_CODE + '</strong></p>' +
         '<label for="login-code">' + esc(t('login_code')) + '</label><input type="text" id="login-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456">' +
         '<div class="row" style="margin-top:1em"><button class="btn" data-act="check-code">' + esc(t('login_verify')) + '</button><button class="btn ghost" data-act="change-phone">' + esc(t('login_change')) + '</button></div>';
-    return '<h1>' + esc(t('login_title')) + '</h1><p>' + esc(t('login_intro')) + '</p>' + demo + err + '<div class="card">' + body + '</div>' +
+    return demo + err + body;
+  }
+  function pageLogin() {
+    if (state.user) return '<h1>' + esc(t('login_title')) + '</h1><div class="card"><p>' + esc(t('login_signed_in')) + ' <strong>' + esc(maskPhone(state.user.phone)) + '</strong></p><div class="row"><a class="btn" href="#cases">' + esc(t('nav_cases')) + '</a><button class="btn ghost" data-act="signout">' + esc(t('signout')) + '</button></div></div>';
+    return '<h1>' + esc(t('login_title')) + '</h1><p>' + esc(t('login_intro')) + '</p><div class="card">' + loginForm() + '</div>' +
       '<div class="card flat"><h2>' + esc(t('login_privacy_t')) + '</h2><p class="small" style="margin:0">' + esc(t('login_privacy')) + '</p></div>';
+  }
+  /* The screen shown first, before the app: sign in, or continue without signing in. */
+  function pageGate() {
+    return '<div class="gate">' +
+      '<section class="gate-photo" style="background-image:linear-gradient(180deg, rgba(10,67,62,.25) 0%, rgba(10,67,62,.55) 45%, rgba(10,67,62,.92) 100%), url(\'' + GATE_PHOTO.src + '\')" role="img" aria-label="' + esc(t('gate_photo_alt')) + '">' +
+        '<div class="gate-brand">' + LOGO + '<div><div class="gate-name">' + esc(t('brand')) + '</div><div class="gate-tag">' + esc(t('tagline')) + '</div></div></div>' +
+        '<h1 class="gate-title">' + esc(t('gate_title')) + '</h1><p class="gate-text">' + esc(t('gate_text')) + '</p>' +
+        '<p class="gate-credit">' + esc(t('gate_photo_by')) + ' <a href="' + GATE_PHOTO.authorUrl + '" target="_blank" rel="noopener noreferrer">' + esc(GATE_PHOTO.author) + '</a> · <a href="' + GATE_PHOTO.page + '" target="_blank" rel="noopener noreferrer">Unsplash</a></p>' +
+      '</section>' +
+      '<section class="gate-panel"><div class="row" style="justify-content:flex-end"><button class="btn ghost small" data-act="lang" lang="' + (state.lang === 'bn' ? 'en' : 'bn') + '">' + esc(t('lang_switch')) + '</button></div>' +
+        '<h2>' + esc(t('login_title')) + '</h2><p class="muted">' + esc(t('login_intro')) + '</p>' + loginForm() +
+        '<div class="gate-or"><span>' + esc(t('gate_or')) + '</span></div>' +
+        '<button class="btn ghost gate-guest" data-act="guest">' + esc(t('gate_guest')) + '</button>' +
+        '<p class="small muted" style="margin-top:.8em">' + esc(t('gate_guest_note')) + '</p>' +
+        '<p class="small muted gate-disclaimer">' + esc(t('disclaimer')) + '</p>' +
+      '</section></div>';
   }
   function pageCases() {
     if (!state.user) return '<h1>' + esc(t('nav_cases')) + '</h1><div class="card"><p>' + esc(t('cases_need_login')) + '</p><a class="btn" href="#login">' + esc(t('nav_login')) + '</a></div>';
@@ -472,6 +496,7 @@
     document.documentElement.lang = state.lang;
     if (state.loadError) { app.innerHTML = '<div class="wrap" style="padding:40px 16px"><div class="banner err" role="alert"><strong>' + esc(t('error_title')) + '</strong><br>' + esc(state.loadError) + '</div><button class="btn" data-act="reload">' + esc(t('retry')) + '</button></div>'; return; }
     if (!state.lib) { app.innerHTML = '<div class="wrap center" style="padding:60px 16px" role="status">…</div>'; return; }
+    if (!state.user && !state.guest) { app.innerHTML = pageGate(); return; }
     var r = route();
     var pages = { '': pageHome, login: pageLogin, cases: pageCases, 'case': pageCase, samples: pageSamples, library: pageLibrary, help: pageHelp, impact: pageImpact, how: pageHow, about: function () { return pageStatic('about', 'about_title'); }, partners: function () { return pageStatic('partners', 'partners_title'); } };
     app.innerHTML = shell(pages[r]());
@@ -506,11 +531,13 @@
       state.user = { phone: state.login.phone, since: new Date().toISOString() };
       if (!store.set('ab_user', state.user)) { state.user = null; state.login.error = t('save_failed'); render(); return; }
       state.login = { step: 'phone', phone: '', error: null };
+      var hadPending = !!state.pendingSave;
       if (state.pendingSave) { saveCase(state.pendingSave); state.pendingSave = null; }
-      go('cases');
+      if (hadPending || route() === 'login') go('cases'); else render();
     }
     else if (act === 'change-phone') { state.login = { step: 'phone', phone: state.login.phone, error: null }; render(); }
-    else if (act === 'signout') { store.del('ab_user'); state.user = null; state.login = { step: 'phone', phone: '', error: null }; go(''); }
+    else if (act === 'signout') { store.del('ab_user'); state.user = null; setGuest(false); state.login = { step: 'phone', phone: '', error: null }; go(''); }
+    else if (act === 'guest') { setGuest(true); render(); window.scrollTo(0, 0); }
     else if (act === 'login-to-save') { var dd = document.getElementById('draft'); if (dd && state.c.memo) state.c.memo.draft_complaint = dd.innerText; state.pendingSave = state.c; go('login'); }
     else if (act === 'save-case') { var ok = saveCase(state.c); state.c.autoSaved = ok; state.c.fromSaved = false; render(); }
     else if (act === 'open-case') openSaved(el.getAttribute('data-id'));

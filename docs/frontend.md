@@ -60,6 +60,7 @@ stateDiagram-v2
 
 ## Sign-in and My cases
 
+- **First screen.** Visitors first see a sign-in screen with a law-themed photo, the phone sign-in, and a **Continue without signing in** button. Choosing to continue is remembered on that device for 12 hours, so judges and guests go straight to the app, including in new tabs. Signing out shows the screen again. Every feature works without an account.
 - **Phone sign-in, demo mode.** The user enters a Bangladeshi mobile number (`01XXXXXXXXX`, `+880` accepted, Bangla digits accepted) and a 6-digit code. SMS is not connected yet: the page says so and shows the test code. When an SMS provider is connected, only `sendCode()` and `checkCode()` in `public/app.js` change.
 - **Saved cases stay on the device.** While signed in, each finished case is saved in the browser's local storage (up to 20 per number), with the triage, risks, memo, draft and the ids of the cited sections. Nothing is sent to the server. Users can open, re-save after editing the draft, delete one, or delete all.
 - **Signed out**, the result offers "Sign in to save this case"; after signing in, that case is saved.

@@ -77,7 +77,11 @@ The rent sample includes one deliberately false citation (a "section 50" that do
 
 The numbers on the Impact page (128 cases, 4.3 out of 5 and so on) are **demo data**, labelled as such on the page. They will be replaced with real pilot numbers. The only real numbers on that page are the ratings given in the current browser session.
 
-## 5. National helplines
+## 5. Photo on the first screen
+
+The sign-in screen shows a photo of a small gold balance scale by [Elena Mozhvilo](https://unsplash.com/@miracleday), from [Unsplash](https://unsplash.com/photos/small-gold-balance-scale-on-colorful-wood-j06gLuKK0GM), free to use under the Unsplash License. It is loaded from Unsplash's image server and credited on the screen.
+
+## 5a. National helplines
 
 The Find help page and the answers for family, violence, land and police topics list four free national helplines, checked on 19 November 2026 against news and NGO sources (The Daily Star, BRAC's toolkit on violence against women and children):
 

@@ -2,6 +2,8 @@
 window.AB_STRINGS = {
   en: {
     brand: 'AinBondhu', tagline: 'Your legal copilot',
+    gate_title: 'Know your rights before you sign, pay or give up', gate_text: 'Upload your rental agreement, job letter or receipt, or just describe the problem. AinBondhu shows the risks and prepares your next step, using the official text of Bangladeshi law.',
+    gate_photo_alt: 'A small gold balance scale, a symbol of justice', gate_photo_by: 'Photo:', gate_or: 'or', gate_guest: 'Continue without signing in', gate_guest_note: 'You can use every feature without an account. Sign in only if you want to save your cases on this device.',
     hl_title: 'Government helplines', hl_note: 'Free national helplines in Bangladesh, checked 19 November 2026.',
     hl_999: 'National emergency service: police, fire service and ambulance, 24 hours', hl_109: 'National helpline for violence against women and children, 24 hours, toll-free', hl_1098: 'Child helpline', hl_16430: 'Government free legal aid helpline',
     danger_title: 'If you or someone else is in danger now, call 999.', danger_text: 'These helplines are free:',
@@ -91,6 +93,8 @@ window.AB_STRINGS = {
   },
   bn: {
     brand: 'আইনবন্ধু', tagline: 'আপনার আইনি সহকারী',
+    gate_title: 'সই করা, টাকা দেওয়া বা হাল ছাড়ার আগে নিজের অধিকার জানুন', gate_text: 'ভাড়ার চুক্তি, নিয়োগপত্র বা রসিদ আপলোড করুন, অথবা শুধু সমস্যাটি লিখুন। আইনবন্ধু বাংলাদেশের আইনের সরকারি পাঠ ব্যবহার করে ঝুঁকিগুলো দেখায় এবং আপনার পরের ধাপ তৈরি করে দেয়।',
+    gate_photo_alt: 'ন্যায়বিচারের প্রতীক, একটি ছোট সোনালি দাঁড়িপাল্লা', gate_photo_by: 'ছবি:', gate_or: 'অথবা', gate_guest: 'সাইন ইন ছাড়াই চালিয়ে যান', gate_guest_note: 'অ্যাকাউন্ট ছাড়াই সব সুবিধা ব্যবহার করতে পারবেন। এই ডিভাইসে কেস সংরক্ষণ করতে চাইলে তবেই সাইন ইন করুন।',
     hl_title: 'সরকারি হেল্পলাইন', hl_note: 'বাংলাদেশের বিনামূল্যের জাতীয় হেল্পলাইন, ১৯ নভেম্বর ২০২৬ তারিখে যাচাই করা।',
     hl_999: 'জাতীয় জরুরি সেবা: পুলিশ, ফায়ার সার্ভিস ও অ্যাম্বুলেন্স, ২৪ ঘণ্টা', hl_109: 'নারী ও শিশু নির্যাতন প্রতিরোধে জাতীয় হেল্পলাইন, ২৪ ঘণ্টা, টোল-ফ্রি', hl_1098: 'শিশু সহায়তা হেল্পলাইন', hl_16430: 'সরকারি বিনামূল্যে আইনি সহায়তা হেল্পলাইন',
     danger_title: 'আপনি বা অন্য কেউ এখন বিপদে থাকলে ৯৯৯-এ ফোন করুন।', danger_text: 'এই হেল্পলাইনগুলো বিনামূল্যে:',

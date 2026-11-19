@@ -118,3 +118,27 @@ details.act .card.flat { margin-bottom: 10px; }
 .helplines li:last-child { border-bottom: 0; }
 .hl-num { font-size: 1.25rem; font-weight: 700; min-width: 64px; text-decoration: none; color: var(--primary-dark); }
 .banner.err .hl-num { color: var(--red); }
+
+/* First screen: sign in or continue as a guest */
+.gate { min-height: 100vh; display: grid; grid-template-columns: 1fr; background: var(--bg); }
+.gate-photo { color: #fff; background-size: cover; background-position: center; padding: 28px 22px 24px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 46vh; }
+.gate-brand { display: flex; align-items: center; gap: 12px; margin-bottom: auto; }
+.gate-brand svg { width: 44px; height: 44px; }
+.gate-name { font-size: 1.4rem; font-weight: 700; line-height: 1.2; }
+.gate-tag { font-size: .85rem; opacity: .9; }
+.gate-title { font-size: 1.7rem; margin: 1.2em 0 .4em; color: #fff; }
+.gate-text { opacity: .95; max-width: 34em; margin-bottom: 1.2em; }
+.gate-credit { font-size: .75rem; opacity: .8; margin: 0; }
+.gate-credit a { color: #fff; }
+.gate-panel { padding: 22px; max-width: 520px; width: 100%; margin: 0 auto; }
+.gate-panel h2 { margin-top: .3em; }
+.gate-or { display: flex; align-items: center; gap: 12px; color: var(--muted); margin: 1.4em 0 1em; font-size: .9rem; }
+.gate-or::before, .gate-or::after { content: ''; flex: 1; border-top: 1px solid var(--line); }
+.gate-guest { width: 100%; }
+.gate-disclaimer { border-top: 1px solid var(--line); padding-top: .8em; margin-top: 1.2em; }
+@media (min-width: 900px) {
+  .gate { grid-template-columns: 1.1fr 1fr; }
+  .gate-photo { min-height: 100vh; padding: 40px 48px; }
+  .gate-title { font-size: 2.3rem; }
+  .gate-panel { align-self: center; padding: 40px; }
+}
