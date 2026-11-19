@@ -79,7 +79,7 @@ The numbers on the Impact page (128 cases, 4.3 out of 5 and so on) are **demo da
 
 ## 5. User data
 
-- **Nothing is stored.** There is no database and there are no accounts.
+- **Nothing is stored on the server.** There is no database. Signing in is optional and in demo mode (no SMS is sent); a signed-in user's saved cases and phone number stay in their own browser on their own device.
 - A user's text and document are sent to the server only to produce their result and are not saved or logged by AinBondhu.
 - In live mode the text and document are processed by the Google Gemini API. The About page tells users this, and asks them not to upload anything they are not comfortable sharing.
 - The public demo should use only the made-up sample cases or other made-up or anonymised data.

@@ -34,13 +34,14 @@ Primary users read Bangla more comfortably than legal English and use phones. Th
 - A statute library of 106 sections of official Bangla text from the government's Laws of Bangladesh website.
 - Result: triage summary, time-limit card, risk cards with citations, case memo, draft complaint, PDF download, and a "How this answer was made" panel.
 - Three made-up sample cases that run the full pipeline in one click.
+- Optional phone sign-in (demo mode: no SMS sent yet) and My cases, saved on the user's own device.
 - Pages: Find help (placeholders, marked "verify before use"), About (limits, privacy, responsible-AI policy), Impact dashboard (labelled demo data), For partners (pricing outline), How it works (architecture diagram), Statute library.
 
 ## Out of scope for version 1
 
 - Legal advice or representation. AinBondhu prepares the user; a person helps them.
 - Issue types other than the three above. Other cases are classified "out of scope" and sent to Find help.
-- Accounts, saved cases or case history. Nothing is stored.
+- Real SMS verification and saving cases on a server. Saved cases stay on the user's device; nothing is stored on the server.
 - Real legal-aid provider contacts. These are placeholders until the team verifies them.
 
 ## Business model

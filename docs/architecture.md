@@ -56,7 +56,7 @@ The Document agent runs before Intake in practice, so Intake can ask questions a
 | User text and documents | Treated as data. Prompts tell every agent to ignore instructions written inside them |
 | AI output to the browser | Every field is cleaned on the server (types, lengths, allowed values), and every value is HTML-escaped in the browser |
 | Law | Only the statute library counts. The AI may cite an entry only if Retrieval supplied it for this case |
-| Storage | None. No database, no accounts, no logs of case text. Uploaded files exist only for the request |
+| Storage | None on the server. No database, no logs of case text; uploaded files exist only for the request. Optional sign-in (demo mode) keeps saved cases in the user's own browser |
 
 ## Why Retrieval and Verifier are plain code
 

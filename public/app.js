@@ -4,12 +4,59 @@
   'use strict';
 
   var AGENTS = ['intake', 'document', 'triage', 'retrieval', 'risk', 'verifier', 'memo'];
-  var ROUTES = ['', 'case', 'samples', 'library', 'help', 'about', 'impact', 'partners', 'how'];
+  var ROUTES = ['', 'case', 'samples', 'library', 'help', 'about', 'impact', 'partners', 'how', 'login', 'cases'];
   var MAX_FILE = 3 * 1024 * 1024;
   var state = { lang: 'en', lib: null, loadError: null, menuOpen: false, c: null, ratings: [] };
   var app = document.getElementById('app');
 
   try { var saved = localStorage.getItem('ab_lang'); if (saved === 'bn' || saved === 'en') state.lang = saved; } catch (e) { /* storage unavailable */ }
+
+  /* ---------- sign-in and saved cases (stored on this device only) ---------- */
+  // Demo sign-in: no SMS is sent yet. When an SMS provider is connected, sendCode() and checkCode()
+  // are the only two functions that need to change.
+  var DEMO_CODE = '123456';
+  var MAX_SAVED = 20;
+  var store = {
+    get: function (k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } },
+    del: function (k) { try { localStorage.removeItem(k); } catch (e) { /* ignore */ } }
+  };
+  state.user = store.get('ab_user');
+  state.login = { step: 'phone', phone: '', error: null };
+  function normPhone(input) {
+    var d = String(input || '').replace(/[০-৯]/g, function (x) { return String('০১২৩৪৫৬৭৮৯'.indexOf(x)); }).replace(/[^\d+]/g, '');
+    d = d.replace(/^\+?880/, '0');
+    return /^01[3-9]\d{8}$/.test(d) ? d : null;
+  }
+  function maskPhone(p) { return p ? p.slice(0, 3) + '*****' + p.slice(-3) : ''; }
+  function casesKey() { return state.user ? 'ab_cases_' + state.user.phone : null; }
+  function savedCases() { return (casesKey() && store.get(casesKey())) || []; }
+  function sendCode(phone) { state.login = { step: 'code', phone: phone, error: null }; return true; }
+  function checkCode(code) { return String(code || '').replace(/\s/g, '') === DEMO_CODE; }
+  function caseRecord(c) {
+    var d = document.getElementById('draft');
+    if (d && c.memo) c.memo.draft_complaint = d.innerText;
+    return {
+      id: c.savedId || ('case-' + Date.now()), saved_at: new Date().toISOString(), lang: c.lang, sample_id: c.sample_id,
+      text: c.text, document: c.document, triage: c.triage, entryIds: (c.entries || []).map(function (e) { return { id: e.id, score: e.score, matched: e.matched }; }),
+      risks: c.risks, verification: c.verification, memo: c.memo, memoRemoved: c.memoRemoved, live: c.live, mixed: c.mixed, model: c.model, trail: c.trail, rated: c.rated
+    };
+  }
+  function saveCase(c) {
+    if (!state.user || !c || !c.memo) return false;
+    var rec = caseRecord(c); c.savedId = rec.id;
+    var list = savedCases().filter(function (x) { return x.id !== rec.id; });
+    list.unshift(rec);
+    return store.set(casesKey(), list.slice(0, MAX_SAVED));
+  }
+  function openSaved(id) {
+    var rec = savedCases().filter(function (x) { return x.id === id; })[0]; if (!rec) return;
+    var c = newCase(null);
+    Object.keys(rec).forEach(function (k) { if (k !== 'entryIds' && k !== 'saved_at') c[k] = rec[k]; });
+    c.entries = (rec.entryIds || []).map(function (x) { return Object.assign({ score: x.score, matched: x.matched }, entryById(x.id)); }).filter(function (e) { return e.id; });
+    c.savedId = rec.id; c.stage = 'result'; c.fromSaved = true;
+    state.c = c; go('case');
+  }
 
   /* ---------- helpers ---------- */
   function t(key) { var s = window.AB_STRINGS[state.lang]; return (s && s[key]) || window.AB_STRINGS.en[key] || key; }
@@ -121,7 +168,7 @@
       c.verification = v; c.risks = v.risks;
       return run('memo', Object.assign(base(), { triage: c.triage, risks: c.risks }));
     }).then(function (m) {
-      c.memo = m.memo; c.memoRemoved = m.removed || []; c.busy = false; c.stage = 'result'; render(); window.scrollTo(0, 0);
+      c.memo = m.memo; c.memoRemoved = m.removed || []; c.busy = false; c.stage = 'result'; if (state.user) c.autoSaved = saveCase(c); render(); window.scrollTo(0, 0);
     }).catch(fail);
   }
   function sampleById(id) { return (state.lib.samples || []).filter(function (s) { return s.id === id; })[0]; }
@@ -169,7 +216,7 @@
   var LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f5c55"/><path d="M16 7v18M9 11h14M9 11l-3 7h6l-3-7zm14 0l-3 7h6l-3-7zM11 25h10" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   function shell(content) {
     var r = route();
-    var links = [['', 'nav_home'], ['samples', 'nav_samples'], ['how', 'nav_arch'], ['library', 'nav_library'], ['help', 'nav_help'], ['impact', 'nav_impact'], ['partners', 'nav_partners'], ['about', 'nav_about']];
+    var links = [['', 'nav_home'], state.user ? ['cases', 'nav_cases'] : ['login', 'nav_login'], ['samples', 'nav_samples'], ['how', 'nav_arch'], ['library', 'nav_library'], ['help', 'nav_help'], ['impact', 'nav_impact'], ['partners', 'nav_partners'], ['about', 'nav_about']];
     return '<div class="notice" role="note">' + esc(t('disclaimer')) + '</div>' +
       '<header class="top"><div class="wrap wide"><div class="bar">' +
       '<a class="brand" href="#home">' + LOGO + '<span>' + esc(t('brand')) + '<small>' + esc(t('tagline')) + '</small></span></a>' +
@@ -303,7 +350,7 @@
       '<section class="card no-print"><div class="row"><span class="chip">' + esc(t('issue')) + ': ' + esc(issueLabel(tr.issue_type)) + '</span><span class="chip ' + urgencyClass + '">' + esc(t('urgency')) + ': ' + esc(t('u_' + tr.urgency)) + '</span></div>' +
       '<p style="margin-top:.8em">' + esc(tr.urgency_reason) + '</p>' + (tr.unknowns.length ? '<h3>' + esc(t('unknowns')) + '</h3>' + list(tr.unknowns) : '') + '</section>' +
       '<section class="card no-print"><h2>' + esc(t('deadline_title')) + '</h2>' + deadline + '</section>' +
-      '<h2 class="no-print">' + esc(t('risks_title')) + '</h2><div class="no-print">' + risks + '</div>' + memo + how + fb +
+      '<h2 class="no-print">' + esc(t('risks_title')) + '</h2><div class="no-print">' + risks + '</div>' + memo + saveCard(c) + how + fb +
       '<p class="no-print"><a class="btn" href="#help">' + esc(t('go_help')) + '</a></p>';
   }
 
@@ -366,13 +413,46 @@
       '<div class="card"><ol>' + AGENTS.map(function (a) { return '<li><strong>' + esc(t('a_' + a)) + ':</strong> ' + esc(t('d_' + a)) + '. <span class="chip ' + (code[a] ? 'amber' : '') + '">' + esc(t(code[a] ? 'arch_code' : 'arch_ai')) + '</span></li>'; }).join('') + '</ol></div>';
   }
 
+  function pageLogin() {
+    if (state.user) return '<h1>' + esc(t('login_title')) + '</h1><div class="card"><p>' + esc(t('login_signed_in')) + ' <strong>' + esc(maskPhone(state.user.phone)) + '</strong></p><div class="row"><a class="btn" href="#cases">' + esc(t('nav_cases')) + '</a><button class="btn ghost" data-act="signout">' + esc(t('signout')) + '</button></div></div>';
+    var L2 = state.login;
+    var err = L2.error ? '<div class="banner err" role="alert">' + esc(L2.error) + '</div>' : '';
+    var demo = '<div class="banner demo" role="note">' + esc(t('login_demo')) + '</div>';
+    var body = L2.step === 'phone'
+      ? '<label for="login-phone">' + esc(t('login_phone')) + '</label><input type="tel" id="login-phone" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX" value="' + esc(L2.phone) + '">' +
+        '<p class="small muted" style="margin:.5em 0 1em">' + esc(t('login_phone_hint')) + '</p><button class="btn" data-act="send-code">' + esc(t('login_send')) + '</button>'
+      : '<p>' + esc(t('login_code_sent')) + ' <strong>' + esc(maskPhone(L2.phone)) + '</strong></p><p class="banner info">' + esc(t('login_demo_code')) + ' <strong>' + DEMO_CODE + '</strong></p>' +
+        '<label for="login-code">' + esc(t('login_code')) + '</label><input type="text" id="login-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456">' +
+        '<div class="row" style="margin-top:1em"><button class="btn" data-act="check-code">' + esc(t('login_verify')) + '</button><button class="btn ghost" data-act="change-phone">' + esc(t('login_change')) + '</button></div>';
+    return '<h1>' + esc(t('login_title')) + '</h1><p>' + esc(t('login_intro')) + '</p>' + demo + err + '<div class="card">' + body + '</div>' +
+      '<div class="card flat"><h2>' + esc(t('login_privacy_t')) + '</h2><p class="small" style="margin:0">' + esc(t('login_privacy')) + '</p></div>';
+  }
+  function pageCases() {
+    if (!state.user) return '<h1>' + esc(t('nav_cases')) + '</h1><div class="card"><p>' + esc(t('cases_need_login')) + '</p><a class="btn" href="#login">' + esc(t('nav_login')) + '</a></div>';
+    var list = savedCases();
+    var fmt = function (iso) { try { return new Date(iso).toLocaleString(state.lang === 'bn' ? 'bn-BD' : 'en-GB', { dateStyle: 'medium', timeStyle: 'short' }); } catch (e) { return iso; } };
+    return '<h1>' + esc(t('nav_cases')) + '</h1><p class="muted">' + esc(t('cases_intro')) + ' <strong>' + esc(maskPhone(state.user.phone)) + '</strong></p>' +
+      (list.length ? list.map(function (x) {
+        var urg = x.triage ? { low: 'green', medium: 'amber', high: 'red' }[x.triage.urgency] : 'grey';
+        return '<div class="card"><p><span class="chip">' + esc(issueLabel(x.triage ? x.triage.issue_type : '')) + '</span> <span class="chip ' + urg + '">' + esc(t('urgency')) + ': ' + esc(t('u_' + (x.triage ? x.triage.urgency : 'medium'))) + '</span></p>' +
+          '<p style="margin-bottom:.4em">' + esc(x.memo ? x.memo.summary : '') + '</p><p class="small muted">' + esc(fmt(x.saved_at)) + ' · ' + (x.risks || []).length + ' ' + esc(t('cases_risks')) + '</p>' +
+          '<div class="row"><button class="btn small" data-act="open-case" data-id="' + esc(x.id) + '">' + esc(t('cases_open')) + '</button><button class="btn ghost small" data-act="del-case" data-id="' + esc(x.id) + '">' + esc(t('cases_delete')) + '</button></div></div>';
+      }).join('') : '<div class="card flat"><p style="margin:0">' + esc(t('cases_empty')) + '</p></div>') +
+      '<div class="row" style="margin-top:8px"><a class="btn" href="#case" data-act="new">' + esc(t('start_over')) + '</a>' + (list.length ? '<button class="btn ghost" data-act="del-all">' + esc(t('cases_delete_all')) + '</button>' : '') + '<button class="btn ghost" data-act="signout">' + esc(t('signout')) + '</button></div>';
+  }
+  function saveCard(c) {
+    if (!state.user) return '<section class="card flat no-print"><p style="margin-bottom:.6em">' + esc(t('save_need_login')) + '</p><button class="btn small" data-act="login-to-save">' + esc(t('nav_login')) + '</button></section>';
+    var msg = c.fromSaved ? t('save_opened') : (c.autoSaved === false ? t('save_failed') : t('save_done'));
+    return '<section class="card flat no-print"><p style="margin-bottom:.6em">' + esc(msg) + '</p><div class="row"><button class="btn small" data-act="save-case">' + esc(t('save_changes')) + '</button><a class="btn ghost small" href="#cases">' + esc(t('nav_cases')) + '</a></div></section>';
+  }
+
   /* ---------- render and events ---------- */
   function render() {
     document.documentElement.lang = state.lang;
     if (state.loadError) { app.innerHTML = '<div class="wrap" style="padding:40px 16px"><div class="banner err" role="alert"><strong>' + esc(t('error_title')) + '</strong><br>' + esc(state.loadError) + '</div><button class="btn" data-act="reload">' + esc(t('retry')) + '</button></div>'; return; }
     if (!state.lib) { app.innerHTML = '<div class="wrap center" style="padding:60px 16px" role="status">…</div>'; return; }
     var r = route();
-    var pages = { '': pageHome, 'case': pageCase, samples: pageSamples, library: pageLibrary, help: pageHelp, impact: pageImpact, how: pageHow, about: function () { return pageStatic('about', 'about_title'); }, partners: function () { return pageStatic('partners', 'partners_title'); } };
+    var pages = { '': pageHome, login: pageLogin, cases: pageCases, 'case': pageCase, samples: pageSamples, library: pageLibrary, help: pageHelp, impact: pageImpact, how: pageHow, about: function () { return pageStatic('about', 'about_title'); }, partners: function () { return pageStatic('partners', 'partners_title'); } };
     app.innerHTML = shell(pages[r]());
   }
   function load() {
@@ -394,7 +474,33 @@
     else if (act === 'rmfile') { keepText(); state.c.file = null; state.c.document_text = ''; state.c.document_name = ''; state.c.sample_id = null; render(); }
     else if (act === 'print') window.print();
     else if (act === 'copy') { var text = document.getElementById('draft').innerText; var ok = function () { el.textContent = t('copied'); }; if (navigator.clipboard) navigator.clipboard.writeText(text).then(ok, function () {}); }
-    else if (act === 'rate') { var v = Number(el.getAttribute('data-v')); state.c.rated = v; state.ratings.push(v); var d = document.getElementById('draft'); if (d) state.c.memo.draft_complaint = d.innerText; render(); }
+    else if (act === 'send-code') {
+      var phone = normPhone((document.getElementById('login-phone') || {}).value);
+      state.login.phone = (document.getElementById('login-phone') || {}).value || '';
+      if (!phone) { state.login.error = t('login_bad_phone'); render(); return; }
+      sendCode(phone); render(); setTimeout(function () { var f = document.getElementById('login-code'); if (f) f.focus(); }, 30);
+    }
+    else if (act === 'check-code') {
+      if (!checkCode((document.getElementById('login-code') || {}).value)) { state.login.error = t('login_bad_code'); render(); return; }
+      state.user = { phone: state.login.phone, since: new Date().toISOString() };
+      if (!store.set('ab_user', state.user)) { state.user = null; state.login.error = t('save_failed'); render(); return; }
+      state.login = { step: 'phone', phone: '', error: null };
+      if (state.pendingSave) { saveCase(state.pendingSave); state.pendingSave = null; }
+      go('cases');
+    }
+    else if (act === 'change-phone') { state.login = { step: 'phone', phone: state.login.phone, error: null }; render(); }
+    else if (act === 'signout') { store.del('ab_user'); state.user = null; state.login = { step: 'phone', phone: '', error: null }; go(''); }
+    else if (act === 'login-to-save') { var dd = document.getElementById('draft'); if (dd && state.c.memo) state.c.memo.draft_complaint = dd.innerText; state.pendingSave = state.c; go('login'); }
+    else if (act === 'save-case') { var ok = saveCase(state.c); state.c.autoSaved = ok; state.c.fromSaved = false; render(); }
+    else if (act === 'open-case') openSaved(el.getAttribute('data-id'));
+    else if (act === 'del-case') { var id = el.getAttribute('data-id'); store.set(casesKey(), savedCases().filter(function (x) { return x.id !== id; })); render(); }
+    else if (act === 'del-all') { store.del(casesKey()); render(); }
+    else if (act === 'rate') { var v = Number(el.getAttribute('data-v')); state.c.rated = v; state.ratings.push(v); if (state.user && state.c.savedId) saveCase(state.c); var d = document.getElementById('draft'); if (d) state.c.memo.draft_complaint = d.innerText; render(); }
+  });
+  app.addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Enter') return;
+    if (ev.target.id === 'login-phone') { ev.preventDefault(); var b = document.querySelector('[data-act=send-code]'); if (b) b.click(); }
+    if (ev.target.id === 'login-code') { ev.preventDefault(); var b2 = document.querySelector('[data-act=check-code]'); if (b2) b2.click(); }
   });
   app.addEventListener('change', function (ev) { if (ev.target.id === 'file' && ev.target.files[0]) readFile(ev.target.files[0]); });
   app.addEventListener('input', function (ev) { if (ev.target.id === 'case-text' && state.c && state.c.sample_id && ev.target.value.trim() !== (L(sampleById(state.c.sample_id) || {}, 'text') || '').trim() && state.lib.live) state.c.sample_id = null; });

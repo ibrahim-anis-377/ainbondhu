@@ -2,6 +2,18 @@
 window.AB_STRINGS = {
   en: {
     brand: 'AinBondhu', tagline: 'Your legal copilot',
+    nav_login: 'Sign in', nav_cases: 'My cases', signout: 'Sign out',
+    login_title: 'Sign in', login_intro: 'Sign in with your mobile number to save your case memos and come back to them later.',
+    login_demo: 'Demo sign-in: SMS is not connected yet, so no message is sent. Use the test code shown after you enter your number.',
+    login_phone: 'Mobile number', login_phone_hint: 'A Bangladeshi mobile number, for example 01712345678.', login_send: 'Send code',
+    login_code_sent: 'Enter the 6-digit code for', login_demo_code: 'Demo mode test code:', login_code: 'Code', login_verify: 'Verify and sign in', login_change: 'Change number',
+    login_bad_phone: 'Please enter a valid Bangladeshi mobile number, such as 01712345678.', login_bad_code: 'That code is not correct. Please try again.',
+    login_privacy_t: 'Where your cases are saved', login_privacy: 'Saved cases stay in this browser on this device. They are not sent to or stored on the AinBondhu server. Clearing your browser data, or using another device, will not show them.',
+    login_signed_in: 'You are signed in as',
+    cases_need_login: 'Sign in to see the cases saved on this device.', cases_intro: 'Cases saved on this device for', cases_risks: 'risks', cases_open: 'Open', cases_delete: 'Delete',
+    cases_empty: 'No saved cases yet. Finished cases are saved here automatically while you are signed in.', cases_delete_all: 'Delete all saved cases',
+    save_need_login: 'Sign in to save this case on this device and come back to it later.', save_done: 'Saved to My cases on this device.',
+    save_opened: 'Opened from My cases. Edit the draft above, then save your changes.', save_failed: 'This browser does not allow saving. Your case was not saved; you can still download it as a PDF.', save_changes: 'Save changes',
     disclaimer: 'General information, not legal advice.',
     nav_home: 'Home', nav_samples: 'Sample cases', nav_library: 'Statute library', nav_help: 'Find help', nav_about: 'About', nav_impact: 'Impact', nav_partners: 'For partners', nav_arch: 'How it works',
     menu: 'Menu', lang_switch: 'বাংলা',
@@ -65,6 +77,18 @@ window.AB_STRINGS = {
   },
   bn: {
     brand: 'আইনবন্ধু', tagline: 'আপনার আইনি সহকারী',
+    nav_login: 'সাইন ইন', nav_cases: 'আমার কেস', signout: 'সাইন আউট',
+    login_title: 'সাইন ইন', login_intro: 'মোবাইল নম্বর দিয়ে সাইন ইন করুন, যাতে কেস মেমো সংরক্ষণ করে পরে আবার দেখতে পারেন।',
+    login_demo: 'ডেমো সাইন ইন: এসএমএস এখনো যুক্ত হয়নি, তাই কোনো মেসেজ পাঠানো হবে না। নম্বর দেওয়ার পর দেখানো পরীক্ষামূলক কোডটি ব্যবহার করুন।',
+    login_phone: 'মোবাইল নম্বর', login_phone_hint: 'বাংলাদেশি মোবাইল নম্বর, যেমন 01712345678।', login_send: 'কোড পাঠান',
+    login_code_sent: '৬ সংখ্যার কোডটি লিখুন, নম্বর:', login_demo_code: 'ডেমো মোডের পরীক্ষামূলক কোড:', login_code: 'কোড', login_verify: 'যাচাই করে সাইন ইন করুন', login_change: 'নম্বর বদলান',
+    login_bad_phone: 'সঠিক বাংলাদেশি মোবাইল নম্বর দিন, যেমন 01712345678।', login_bad_code: 'কোডটি সঠিক নয়। আবার চেষ্টা করুন।',
+    login_privacy_t: 'আপনার কেস কোথায় সংরক্ষিত হয়', login_privacy: 'সংরক্ষিত কেস এই ডিভাইসের এই ব্রাউজারেই থাকে। এগুলো আইনবন্ধুর সার্ভারে পাঠানো বা সংরক্ষণ করা হয় না। ব্রাউজারের ডেটা মুছলে বা অন্য ডিভাইসে এগুলো দেখা যাবে না।',
+    login_signed_in: 'আপনি সাইন ইন করেছেন:',
+    cases_need_login: 'এই ডিভাইসে সংরক্ষিত কেস দেখতে সাইন ইন করুন।', cases_intro: 'এই ডিভাইসে সংরক্ষিত কেস, নম্বর:', cases_risks: 'টি ঝুঁকি', cases_open: 'খুলুন', cases_delete: 'মুছুন',
+    cases_empty: 'এখনো কোনো কেস সংরক্ষিত নেই। সাইন ইন থাকলে সম্পন্ন কেস এখানে স্বয়ংক্রিয়ভাবে সংরক্ষিত হয়।', cases_delete_all: 'সব সংরক্ষিত কেস মুছুন',
+    save_need_login: 'এই কেসটি এই ডিভাইসে সংরক্ষণ করে পরে দেখতে সাইন ইন করুন।', save_done: 'এই ডিভাইসে "আমার কেস"-এ সংরক্ষিত হয়েছে।',
+    save_opened: '"আমার কেস" থেকে খোলা হয়েছে। ওপরের খসড়া বদলে পরিবর্তন সংরক্ষণ করুন।', save_failed: 'এই ব্রাউজার সংরক্ষণের অনুমতি দেয় না। কেসটি সংরক্ষিত হয়নি; তবে পিডিএফ হিসেবে ডাউনলোড করতে পারেন।', save_changes: 'পরিবর্তন সংরক্ষণ করুন',
     disclaimer: 'এটি সাধারণ তথ্য, আইনি পরামর্শ নয়।',
     nav_home: 'হোম', nav_samples: 'নমুনা কেস', nav_library: 'আইন লাইব্রেরি', nav_help: 'সহায়তা খুঁজুন', nav_about: 'পরিচিতি', nav_impact: 'প্রভাব', nav_partners: 'পার্টনারদের জন্য', nav_arch: 'কীভাবে কাজ করে',
     menu: 'মেনু', lang_switch: 'English',
@@ -133,12 +157,12 @@ window.AB_PAGES = {
   about: {
     en: '<h2>What it is</h2><p>AinBondhu helps people who cannot afford a lawyer understand a legal document or problem, see the risks in it, and prepare their next step. Version 1 covers house rent disputes, unpaid wages and consumer complaints.</p>' +
       '<h2>Limits</h2><ul><li>It gives general information, not legal advice. It does not replace a lawyer or a legal aid provider.</li><li>It can only use the law in its statute library. If the library has no entry for a point, it says so.</li><li>The law text is copied automatically from the government website. Until a team member has checked a section against the official source, it is marked "team check pending".</li><li>AI can misread a document, especially a blurry photo or handwriting. Always check the extracted terms against your own document.</li></ul>' +
-      '<h2>Privacy</h2><ul><li>Your text and document are sent to the server only to produce your result, and are not saved by AinBondhu.</li><li>There are no accounts. Feedback ratings are counted in your browser session only.</li><li>In live mode your text and document are processed by the AI provider named below. Do not upload anything you are not comfortable sharing.</li><li>Sample cases use made-up details.</li></ul>' +
+      '<h2>Privacy</h2><ul><li>Your text and document are sent to the server only to produce your result, and are not saved by AinBondhu.</li><li>Signing in is optional. If you sign in, your saved cases stay in this browser on this device; they are not sent to or stored on the AinBondhu server. Sign-in is in demo mode: no SMS is sent yet.</li><li>In live mode your text and document are processed by the AI provider named below. Do not upload anything you are not comfortable sharing.</li><li>Sample cases use made-up details.</li></ul>' +
       '<h2>Responsible AI policy</h2><ul><li>The AI may cite only entries in the statute library. A separate Verifier, written as plain code, checks every citation and removes what it cannot match.</li><li>Every result shows how it was made: agents run, entries used, claims removed.</li><li>AinBondhu refuses to help with fraud, harassment, forgery or evidence tampering.</li><li>No names, phone numbers or addresses of real providers are shown until the team has verified them.</li></ul>' +
       '<h2>Data and model sources</h2><ul><li>Law: the official Bangla text of the relevant sections of the Premises Rent Control Act 1991, the Consumer Rights Protection Act 2009 and the Bangladesh Labour Act 2006, from the Laws of Bangladesh website (bdlaws.minlaw.gov.bd), with a source link for each section.</li><li>AI model: Google Gemini, called from the server. The key is never sent to your browser.</li><li>Sample cases and dashboard numbers: made up by the team and labelled as such.</li></ul>',
     bn: '<h2>এটি কী</h2><p>যারা আইনজীবীর খরচ দিতে পারেন না, আইনবন্ধু তাদের আইনি ডকুমেন্ট বা সমস্যা বুঝতে, ঝুঁকি দেখতে এবং পরের ধাপ তৈরি করতে সাহায্য করে। প্রথম সংস্করণে বাড়ি ভাড়ার বিরোধ, বকেয়া মজুরি ও ভোক্তা অভিযোগ আছে।</p>' +
       '<h2>সীমাবদ্ধতা</h2><ul><li>এটি সাধারণ তথ্য দেয়, আইনি পরামর্শ নয়। এটি আইনজীবী বা আইনি সহায়তা প্রদানকারীর বিকল্প নয়।</li><li>এটি শুধু নিজের আইন লাইব্রেরির আইন ব্যবহার করতে পারে। কোনো বিষয়ে লাইব্রেরিতে তথ্য না থাকলে তা বলে দেয়।</li><li>আইনের পাঠ সরকারি ওয়েবসাইট থেকে স্বয়ংক্রিয়ভাবে নেওয়া। দলের কেউ সরকারি উৎসের সাথে মিলিয়ে না দেখা পর্যন্ত প্রতিটি ধারা "দলের যাচাই বাকি" হিসেবে চিহ্নিত থাকে।</li><li>এআই ডকুমেন্ট ভুল পড়তে পারে, বিশেষ করে ঝাপসা ছবি বা হাতের লেখা। বের করা তথ্য নিজের ডকুমেন্টের সাথে মিলিয়ে নিন।</li></ul>' +
-      '<h2>গোপনীয়তা</h2><ul><li>আপনার লেখা ও ডকুমেন্ট শুধু ফলাফল তৈরির জন্য সার্ভারে যায়; আইনবন্ধু তা সংরক্ষণ করে না।</li><li>কোনো অ্যাকাউন্ট নেই। রেটিং শুধু আপনার ব্রাউজার সেশনে গণনা হয়।</li><li>লাইভ মোডে আপনার লেখা ও ডকুমেন্ট নিচে উল্লিখিত এআই সেবাদাতা প্রক্রিয়া করে। যা জানাতে স্বস্তি পান না তা আপলোড করবেন না।</li><li>নমুনা কেসের সব তথ্য বানানো।</li></ul>' +
+      '<h2>গোপনীয়তা</h2><ul><li>আপনার লেখা ও ডকুমেন্ট শুধু ফলাফল তৈরির জন্য সার্ভারে যায়; আইনবন্ধু তা সংরক্ষণ করে না।</li><li>সাইন ইন ঐচ্ছিক। সাইন ইন করলে সংরক্ষিত কেস এই ডিভাইসের এই ব্রাউজারেই থাকে; আইনবন্ধুর সার্ভারে পাঠানো বা সংরক্ষণ করা হয় না। সাইন ইন এখন ডেমো মোডে: কোনো এসএমএস পাঠানো হয় না।</li><li>লাইভ মোডে আপনার লেখা ও ডকুমেন্ট নিচে উল্লিখিত এআই সেবাদাতা প্রক্রিয়া করে। যা জানাতে স্বস্তি পান না তা আপলোড করবেন না।</li><li>নমুনা কেসের সব তথ্য বানানো।</li></ul>' +
       '<h2>দায়িত্বশীল এআই নীতি</h2><ul><li>এআই শুধু আইন লাইব্রেরির তথ্য উদ্ধৃত করতে পারে। সাধারণ কোডে লেখা আলাদা একটি যাচাইকারী প্রতিটি উদ্ধৃতি মিলিয়ে দেখে এবং যা মেলে না তা বাদ দেয়।</li><li>প্রতিটি ফলাফলে দেখানো হয় কীভাবে তা তৈরি হলো: কোন এজেন্ট চলেছে, কোন তথ্য ব্যবহার হয়েছে, কী বাদ গেছে।</li><li>আইনবন্ধু প্রতারণা, হয়রানি, জালিয়াতি বা প্রমাণ নষ্ট করার কাজে সাহায্য করে না।</li><li>দল যাচাই না করা পর্যন্ত কোনো প্রকৃত সেবাদাতার নাম, ফোন বা ঠিকানা দেখানো হয় না।</li></ul>' +
       '<h2>ডেটা ও মডেলের উৎস</h2><ul><li>আইন: বাড়ী ভাড়া নিয়ন্ত্রণ আইন ১৯৯১, ভোক্তা-অধিকার সংরক্ষণ আইন ২০০৯ ও বাংলাদেশ শ্রম আইন ২০০৬-এর প্রাসঙ্গিক ধারাগুলোর সরকারি বাংলা পাঠ, Laws of Bangladesh ওয়েবসাইট (bdlaws.minlaw.gov.bd) থেকে; প্রতিটি ধারার উৎস লিংক আছে।</li><li>এআই মডেল: Google Gemini, সার্ভার থেকে ব্যবহার হয়। এর চাবি কখনো আপনার ব্রাউজারে পাঠানো হয় না।</li><li>নমুনা কেস ও ড্যাশবোর্ডের সংখ্যা: দলের বানানো এবং সেভাবেই চিহ্নিত।</li></ul>'
   },

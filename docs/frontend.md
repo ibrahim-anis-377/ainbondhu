@@ -26,6 +26,8 @@ The router reads the part of the address after `#`.
 | `#impact` | Impact dashboard, labelled "Demo data" |
 | `#partners` | For legal-aid partners, with the pricing outline |
 | `#about` | Limits, privacy, responsible-AI policy, data and model sources |
+| `#login` | Sign in with a Bangladeshi mobile number (demo mode, see below) |
+| `#cases` | My cases: cases saved on this device while signed in |
 
 ## The case flow
 
@@ -53,6 +55,12 @@ stateDiagram-v2
    - Download as PDF (the browser's print dialog, with print styles showing only the memo) and Copy draft.
    - "How this answer was made": whether live AI or prepared sample output was used and which model, the agents that ran, the sections retrieved and why they matched, and everything the Verifier removed and why.
    - "Was this helpful?" rating.
+
+## Sign-in and My cases
+
+- **Phone sign-in, demo mode.** The user enters a Bangladeshi mobile number (`01XXXXXXXXX`, `+880` accepted, Bangla digits accepted) and a 6-digit code. SMS is not connected yet: the page says so and shows the test code. When an SMS provider is connected, only `sendCode()` and `checkCode()` in `public/app.js` change.
+- **Saved cases stay on the device.** While signed in, each finished case is saved in the browser's local storage (up to 20 per number), with the triage, risks, memo, draft and the ids of the cited sections. Nothing is sent to the server. Users can open, re-save after editing the draft, delete one, or delete all.
+- **Signed out**, the result offers "Sign in to save this case"; after signing in, that case is saved.
 
 ## Language
 
