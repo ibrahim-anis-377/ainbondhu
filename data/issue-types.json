@@ -1,0 +1,23 @@
+[
+  {
+    "id": "rent",
+    "label_en": "House rent dispute",
+    "label_bn": "বাড়ি ভাড়া সংক্রান্ত বিরোধ",
+    "evidence_en": ["Rental agreement or any written terms", "Rent receipts or payment records (bank, bKash, Nagad)", "Messages or letters between you and the landlord", "Photos of the premises and any damage", "Names of witnesses, such as neighbours"],
+    "evidence_bn": ["ভাড়ার চুক্তিপত্র বা লিখিত শর্ত", "ভাড়ার রসিদ বা পেমেন্টের প্রমাণ (ব্যাংক, বিকাশ, নগদ)", "বাড়িওয়ালার সাথে মেসেজ বা চিঠি", "বাসার ও ক্ষতির ছবি", "সাক্ষীর নাম, যেমন প্রতিবেশী"]
+  },
+  {
+    "id": "wages",
+    "label_en": "Unpaid wages",
+    "label_bn": "বকেয়া মজুরি",
+    "evidence_en": ["Appointment letter or ID card", "Pay slips or salary sheets", "Attendance or overtime records", "Bank or mobile-wallet statements showing past salary", "Messages with the employer about payment"],
+    "evidence_bn": ["নিয়োগপত্র বা আইডি কার্ড", "পে-স্লিপ বা বেতন শিট", "হাজিরা বা ওভারটাইমের রেকর্ড", "আগের বেতনের ব্যাংক বা মোবাইল ওয়ালেট স্টেটমেন্ট", "বেতন নিয়ে মালিকের সাথে মেসেজ"]
+  },
+  {
+    "id": "consumer",
+    "label_en": "Consumer complaint",
+    "label_bn": "ভোক্তা অভিযোগ",
+    "evidence_en": ["Receipt, invoice or order confirmation", "Photos or video of the product or service problem", "Packaging showing price, weight or expiry date", "Messages with the seller", "Advertisement or product page you relied on"],
+    "evidence_bn": ["রসিদ, ইনভয়েস বা অর্ডার কনফার্মেশন", "পণ্য বা সেবার সমস্যার ছবি বা ভিডিও", "মূল্য, ওজন বা মেয়াদ লেখা মোড়ক", "বিক্রেতার সাথে মেসেজ", "যে বিজ্ঞাপন বা পণ্যের পেজ দেখে কিনেছেন"]
+  }
+]

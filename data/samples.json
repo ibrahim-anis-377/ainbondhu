@@ -1,0 +1,657 @@
+[
+  {
+    "id": "sample-rent",
+    "issue_type": "rent",
+    "title_en": "Landlord asks for three months' advance",
+    "title_bn": "বাড়িওয়ালা তিন মাসের অগ্রিম চাইছেন",
+    "note": "All names, addresses and amounts in this sample are made up.",
+    "text_en": "I am renting a two-room flat in Mirpur. The landlord took three months' rent as advance and now says he will raise the rent in the middle of the year. He never gives me a rent receipt. What are the risks in my agreement?",
+    "text_bn": "আমি মিরপুরে দুই রুমের একটি ফ্ল্যাট ভাড়া নিয়েছি। বাড়িওয়ালা তিন মাসের ভাড়া অগ্রিম নিয়েছেন, আর এখন বলছেন বছরের মাঝখানে ভাড়া বাড়াবেন। তিনি কখনো ভাড়ার রসিদ দেন না। আমার চুক্তিতে কী কী ঝুঁকি আছে?",
+    "document_name": "sample-rental-agreement.txt",
+    "document_text": "HOUSE RENT AGREEMENT (SAMPLE - MADE-UP DETAILS)\nThis agreement is made on 1 January 2026 between Mr. Karim Example (Landlord) and Mr. Rahim Example (Tenant) for Flat 3B, House 00, Road 00, Mirpur, Dhaka.\n1. Monthly rent: BDT 15,000, payable by the 5th day of each month.\n2. The Tenant has paid BDT 45,000 as advance, equal to three months' rent. The advance is non-refundable if the Tenant leaves before 12 months.\n3. The Landlord may increase the rent at any time by giving verbal notice.\n4. The Tenant shall pay gas, water and electricity bills.\n5. The Landlord may ask the Tenant to vacate at any time.\n6. Repairs of any kind are the Tenant's responsibility.\nSigned: Karim Example, Rahim Example.",
+    "demo_answers": {
+      "en": [
+        "Since 1 January 2026.",
+        "BDT 15,000 per month.",
+        "By cash, no receipt.",
+        "Only verbally, last week.",
+        "No."
+      ],
+      "bn": [
+        "১ জানুয়ারি ২০২৬ থেকে।",
+        "মাসে ১৫,০০০ টাকা।",
+        "নগদে, কোনো রসিদ নেই।",
+        "শুধু মুখে, গত সপ্তাহে।",
+        "না।"
+      ]
+    },
+    "outputs": {
+      "en": {
+        "document": {
+          "doc_type": "House rent agreement",
+          "text_excerpt": "Monthly rent BDT 15,000. Advance BDT 45,000 (three months), non-refundable before 12 months. Landlord may increase rent at any time by verbal notice. Landlord may ask Tenant to vacate at any time. All repairs are the Tenant's responsibility.",
+          "key_terms": {
+            "parties": [
+              "Karim Example (Landlord)",
+              "Rahim Example (Tenant)"
+            ],
+            "amounts": [
+              "Rent BDT 15,000 per month",
+              "Advance BDT 45,000"
+            ],
+            "dates": [
+              "Agreement date 1 January 2026",
+              "Rent due by the 5th of each month"
+            ],
+            "obligations": [
+              "Tenant pays utility bills",
+              "Tenant pays for all repairs",
+              "Advance non-refundable before 12 months"
+            ]
+          }
+        },
+        "intake": {
+          "input_style": "english",
+          "summary": "A tenant in Mirpur paid three months' rent as advance, gets no rent receipts, and has been told the rent will rise mid-year.",
+          "questions": [
+            "When did the tenancy start?",
+            "How much is the monthly rent?",
+            "How do you pay the rent, and do you get any proof of payment?",
+            "Has the landlord told you about the increase in writing or only verbally?",
+            "Has the landlord asked you to leave?"
+          ]
+        },
+        "triage": {
+          "issue_type": "rent",
+          "urgency": "medium",
+          "urgency_reason": "There is no eviction yet, but the rent increase was announced last week and payments are undocumented.",
+          "unknowns": [
+            "Whether the advance was approved by any authority",
+            "Whether there are witnesses to the cash payments",
+            "The amount of the proposed increase"
+          ],
+          "refused": false
+        },
+        "risk": {
+          "risks": [
+            {
+              "title": "Advance of three months' rent",
+              "what_it_says": "Clause 2: the Tenant has paid BDT 45,000 as advance, equal to three months' rent, non-refundable before 12 months.",
+              "why_it_matters": "Section 10 of the Premises Rent Control Act says a landlord may not take more than one month's rent as advance without the Controller's prior approval, and may not take salami, a deposit or any similar payment on top of the rent. Three months' advance goes beyond that.",
+              "citation_id": "prca-1991-s10",
+              "quote": "এক মাসের ভাড়ার অতিরিক্ত",
+              "confidence": "high"
+            },
+            {
+              "title": "No proof of rent payments",
+              "what_it_says": "The agreement says nothing about receipts, and you pay in cash without one.",
+              "why_it_matters": "Section 13 says that when a tenant pays rent, the landlord must immediately give a signed receipt in the prescribed form and keep a counterfoil. Without receipts it is also hard to prove you paid if a dispute starts.",
+              "citation_id": "prca-1991-s13",
+              "quote": "ভাড়া প্রাপ্তির একটি রশিদ",
+              "confidence": "high"
+            },
+            {
+              "title": "Rent can be raised at any time by verbal notice",
+              "what_it_says": "Clause 3: the Landlord may increase the rent at any time by giving verbal notice.",
+              "why_it_matters": "A verbal, any-time increase leaves you with no record and no predictability. I could not find a verified provision for this in the library; ask a legal aid provider.",
+              "citation_id": null,
+              "quote": null,
+              "confidence": "medium"
+            },
+            {
+              "title": "Eviction notice period",
+              "what_it_says": "Clause 5: the Landlord may ask the Tenant to vacate at any time.",
+              "why_it_matters": "Under section 50 the landlord must give 90 days' written notice before eviction.",
+              "citation_id": "prca-1991-s50",
+              "quote": "৯০ দিনের লিখিত নোটিশ",
+              "confidence": "high",
+              "demo_note": "This claim cites a section that does not exist (the Act has 36 sections). It was deliberately included in the prepared sample to show the Verifier agent removing it."
+            }
+          ]
+        },
+        "memo": {
+          "summary": "Tenant of a flat in Mirpur since 1 January 2026 paid a three-month advance, receives no rent receipts, and faces a verbally announced rent increase.",
+          "facts": [
+            "Tenancy started 1 January 2026 under a written agreement.",
+            "Monthly rent is BDT 15,000; BDT 45,000 was paid as advance.",
+            "Rent is paid in cash and no receipt is given.",
+            "The landlord announced a rent increase verbally last week."
+          ],
+          "next_steps": [
+            "Ask the landlord in writing (a message is enough) for a receipt for every payment, including the advance.",
+            "From now on, pay rent in a way that leaves a record.",
+            "Ask the landlord to state the proposed increase in writing.",
+            "Take the agreement and this memo to a legal aid provider and ask about the advance and the increase.",
+            "Check any time limit with a legal aid provider."
+          ],
+          "draft_complaint": "Dear Mr. Karim Example,\n\nI am the tenant of Flat 3B. I have paid rent of BDT 15,000 every month since January 2026 and an advance of BDT 45,000. I request a signed receipt for the advance and for each month's rent.\n\nYou told me last week that the rent will increase. Please tell me in writing the new amount and the date it would start, so that I can consider it.\n\nThank you.\nRahim Example\n[date]"
+        }
+      },
+      "bn": {
+        "document": {
+          "doc_type": "বাড়ি ভাড়ার চুক্তিপত্র",
+          "text_excerpt": "মাসিক ভাড়া ১৫,০০০ টাকা। অগ্রিম ৪৫,০০০ টাকা (তিন মাসের), ১২ মাসের আগে ছাড়লে অফেরতযোগ্য। বাড়িওয়ালা মৌখিক নোটিশে যেকোনো সময় ভাড়া বাড়াতে পারবেন। যেকোনো সময় বাসা ছাড়তে বলতে পারবেন। সব মেরামতের দায় ভাড়াটিয়ার।",
+          "key_terms": {
+            "parties": [
+              "করিম উদাহরণ (বাড়িওয়ালা)",
+              "রহিম উদাহরণ (ভাড়াটিয়া)"
+            ],
+            "amounts": [
+              "ভাড়া মাসে ১৫,০০০ টাকা",
+              "অগ্রিম ৪৫,০০০ টাকা"
+            ],
+            "dates": [
+              "চুক্তির তারিখ ১ জানুয়ারি ২০২৬",
+              "প্রতি মাসের ৫ তারিখের মধ্যে ভাড়া"
+            ],
+            "obligations": [
+              "ইউটিলিটি বিল ভাড়াটিয়ার",
+              "সব মেরামত ভাড়াটিয়ার",
+              "১২ মাসের আগে অগ্রিম অফেরতযোগ্য"
+            ]
+          }
+        },
+        "intake": {
+          "input_style": "bangla",
+          "summary": "মিরপুরের একজন ভাড়াটিয়া তিন মাসের ভাড়া অগ্রিম দিয়েছেন, রসিদ পান না, এবং বছরের মাঝখানে ভাড়া বাড়ানোর কথা শুনেছেন।",
+          "questions": [
+            "ভাড়া কবে থেকে শুরু হয়েছে?",
+            "মাসিক ভাড়া কত?",
+            "ভাড়া কীভাবে দেন, আর কোনো প্রমাণ পান কি?",
+            "ভাড়া বাড়ানোর কথা লিখিতভাবে বলেছেন, নাকি শুধু মুখে?",
+            "বাড়িওয়ালা কি বাসা ছাড়তে বলেছেন?"
+          ]
+        },
+        "triage": {
+          "issue_type": "rent",
+          "urgency": "medium",
+          "urgency_reason": "এখনো উচ্ছেদের কথা হয়নি, তবে গত সপ্তাহে ভাড়া বাড়ানোর কথা বলা হয়েছে এবং পেমেন্টের কোনো প্রমাণ নেই।",
+          "unknowns": [
+            "অগ্রিম নেওয়ার কোনো অনুমোদন ছিল কি না",
+            "নগদ পেমেন্টের সাক্ষী আছে কি না",
+            "কত টাকা বাড়াতে চান"
+          ],
+          "refused": false
+        },
+        "risk": {
+          "risks": [
+            {
+              "title": "তিন মাসের ভাড়া অগ্রিম",
+              "what_it_says": "দফা ২: ভাড়াটিয়া তিন মাসের ভাড়ার সমান ৪৫,০০০ টাকা অগ্রিম দিয়েছেন, ১২ মাসের আগে ছাড়লে ফেরত নয়।",
+              "why_it_matters": "বাড়ী ভাড়া নিয়ন্ত্রণ আইনের ধারা ১০ অনুযায়ী নিয়ন্ত্রকের পূর্বানুমোদন ছাড়া বাড়িওয়ালা এক মাসের ভাড়ার বেশি অগ্রিম নিতে পারেন না, এবং ভাড়ার অতিরিক্ত সালামী, জামানত বা অনুরূপ কোনো অর্থ নিতে পারেন না। তিন মাসের অগ্রিম এর চেয়ে বেশি।",
+              "citation_id": "prca-1991-s10",
+              "quote": "এক মাসের ভাড়ার অতিরিক্ত",
+              "confidence": "high"
+            },
+            {
+              "title": "ভাড়া দেওয়ার কোনো প্রমাণ নেই",
+              "what_it_says": "চুক্তিতে রসিদের কথা নেই, আর আপনি রসিদ ছাড়া নগদে ভাড়া দেন।",
+              "why_it_matters": "ধারা ১৩ অনুযায়ী ভাড়াটিয়া ভাড়া দিলে বাড়িওয়ালাকে তখনই নির্ধারিত ফরমে স্বাক্ষর করে রশিদ দিতে হবে এবং রশিদের চেকমুড়ি রাখতে হবে। রশিদ না থাকলে বিরোধ হলে ভাড়া দেওয়ার প্রমাণ করাও কঠিন।",
+              "citation_id": "prca-1991-s13",
+              "quote": "ভাড়া প্রাপ্তির একটি রশিদ",
+              "confidence": "high"
+            },
+            {
+              "title": "মৌখিক নোটিশে যেকোনো সময় ভাড়া বৃদ্ধি",
+              "what_it_says": "দফা ৩: বাড়িওয়ালা মৌখিক নোটিশ দিয়ে যেকোনো সময় ভাড়া বাড়াতে পারবেন।",
+              "why_it_matters": "মৌখিকভাবে যেকোনো সময় ভাড়া বাড়লে আপনার হাতে কোনো প্রমাণ বা নিশ্চয়তা থাকে না। এ বিষয়ে লাইব্রেরিতে যাচাই করা কোনো বিধান পাইনি; আইনি সহায়তা প্রদানকারীকে জিজ্ঞেস করুন।",
+              "citation_id": null,
+              "quote": null,
+              "confidence": "medium"
+            },
+            {
+              "title": "উচ্ছেদের নোটিশের সময়",
+              "what_it_says": "দফা ৫: বাড়িওয়ালা যেকোনো সময় বাসা ছাড়তে বলতে পারবেন।",
+              "why_it_matters": "ধারা ৫০ অনুযায়ী উচ্ছেদের আগে বাড়িওয়ালাকে ৯০ দিনের লিখিত নোটিশ দিতে হয়।",
+              "citation_id": "prca-1991-s50",
+              "quote": "৯০ দিনের লিখিত নোটিশ",
+              "confidence": "high",
+              "demo_note": "এই দাবিতে এমন একটি ধারা উল্লেখ করা হয়েছে যা আইনে নেই (আইনটিতে ৩৬টি ধারা)। যাচাইকারী এজেন্ট কীভাবে তা বাদ দেয় দেখাতে এটি ইচ্ছাকৃতভাবে নমুনায় রাখা হয়েছে।"
+            }
+          ]
+        },
+        "memo": {
+          "summary": "মিরপুরের একটি ফ্ল্যাটের ভাড়াটিয়া ১ জানুয়ারি ২০২৬ থেকে আছেন, তিন মাসের অগ্রিম দিয়েছেন, রসিদ পান না, এবং মৌখিকভাবে ভাড়া বাড়ানোর কথা শুনেছেন।",
+          "facts": [
+            "লিখিত চুক্তিতে ১ জানুয়ারি ২০২৬ থেকে ভাড়া শুরু।",
+            "মাসিক ভাড়া ১৫,০০০ টাকা; অগ্রিম দেওয়া হয়েছে ৪৫,০০০ টাকা।",
+            "ভাড়া নগদে দেওয়া হয়, রসিদ দেওয়া হয় না।",
+            "গত সপ্তাহে বাড়িওয়ালা মুখে ভাড়া বাড়ানোর কথা বলেছেন।"
+          ],
+          "next_steps": [
+            "অগ্রিমসহ প্রতিটি পেমেন্টের রসিদ লিখিতভাবে (মেসেজেও চলবে) চান।",
+            "এখন থেকে এমনভাবে ভাড়া দিন যাতে প্রমাণ থাকে।",
+            "কত টাকা বাড়াতে চান তা লিখিতভাবে জানাতে বলুন।",
+            "চুক্তিপত্র ও এই মেমো নিয়ে আইনি সহায়তা প্রদানকারীর কাছে যান এবং অগ্রিম ও ভাড়া বৃদ্ধি নিয়ে জিজ্ঞেস করুন।",
+            "কোনো সময়সীমা আছে কি না আইনি সহায়তা প্রদানকারীর কাছে জেনে নিন।"
+          ],
+          "draft_complaint": "জনাব করিম উদাহরণ,\n\nআমি ফ্ল্যাট ৩বি-এর ভাড়াটিয়া। জানুয়ারি ২০২৬ থেকে প্রতি মাসে ১৫,০০০ টাকা ভাড়া এবং ৪৫,০০০ টাকা অগ্রিম দিয়েছি। অগ্রিম ও প্রতি মাসের ভাড়ার জন্য স্বাক্ষরিত রসিদ দেওয়ার অনুরোধ করছি।\n\nগত সপ্তাহে আপনি ভাড়া বাড়ানোর কথা বলেছেন। নতুন ভাড়ার পরিমাণ ও কবে থেকে কার্যকর হবে তা অনুগ্রহ করে লিখিতভাবে জানান, যাতে আমি বিবেচনা করতে পারি।\n\nধন্যবাদ।\nরহিম উদাহরণ\n[তারিখ]"
+        }
+      }
+    }
+  },
+  {
+    "id": "sample-wages",
+    "issue_type": "wages",
+    "title_en": "Two months' salary not paid",
+    "title_bn": "দুই মাসের বেতন বকেয়া",
+    "note": "All names, addresses and amounts in this sample are made up.",
+    "text_en": "I work as a sewing operator in a garment factory. My salary for the last two months has not been paid. The manager says they will pay when the buyer pays. Here is my appointment letter.",
+    "text_bn": "আমি একটি গার্মেন্টস কারখানায় সেলাই অপারেটর হিসেবে কাজ করি। গত দুই মাসের বেতন পাইনি। ম্যানেজার বলছেন বায়ার টাকা দিলে বেতন দেবেন। এই আমার নিয়োগপত্র।",
+    "document_name": "sample-appointment-letter.txt",
+    "document_text": "APPOINTMENT LETTER (SAMPLE - MADE-UP DETAILS)\nExample Garments Ltd., Plot 00, Example Industrial Area, Gazipur.\nDate: 1 March 2025\nTo: Ms. Salma Example, Sewing Operator.\n1. Monthly wage: BDT 13,500 including allowances.\n2. Wages will be paid when funds are available to the company.\n3. Overtime will be paid at the company's discretion.\n4. The company may deduct wages for any reason it considers fit.\n5. No pay slip will be issued.\nSigned: HR Manager, Example Garments Ltd.",
+    "demo_answers": {
+      "en": [
+        "September and October 2026.",
+        "BDT 13,500 per month.",
+        "About 40 hours of overtime each month, also unpaid.",
+        "No pay slips; earlier salary came by bKash.",
+        "Yes, about 30 co-workers are also unpaid."
+      ],
+      "bn": [
+        "সেপ্টেম্বর ও অক্টোবর ২০২৬।",
+        "মাসে ১৩,৫০০ টাকা।",
+        "প্রতি মাসে প্রায় ৪০ ঘণ্টা ওভারটাইম, সেটাও বকেয়া।",
+        "পে-স্লিপ নেই; আগের বেতন বিকাশে এসেছিল।",
+        "হ্যাঁ, প্রায় ৩০ জন সহকর্মীও বেতন পাননি।"
+      ]
+    },
+    "outputs": {
+      "en": {
+        "document": {
+          "doc_type": "Appointment letter",
+          "text_excerpt": "Monthly wage BDT 13,500. Wages paid when funds are available. Overtime at the company's discretion. Deductions for any reason. No pay slip issued.",
+          "key_terms": {
+            "parties": [
+              "Example Garments Ltd. (Employer)",
+              "Salma Example (Worker, Sewing Operator)"
+            ],
+            "amounts": [
+              "Monthly wage BDT 13,500"
+            ],
+            "dates": [
+              "Appointment date 1 March 2025"
+            ],
+            "obligations": [
+              "Wages paid when funds are available",
+              "Overtime at the company's discretion",
+              "No pay slip issued"
+            ]
+          }
+        },
+        "intake": {
+          "input_style": "english",
+          "summary": "A sewing operator has not been paid for two months and was told wages depend on the buyer paying the factory.",
+          "questions": [
+            "Which months are unpaid?",
+            "What is your monthly wage?",
+            "Do you also have unpaid overtime?",
+            "Do you have pay slips or other proof of earlier salary payments?",
+            "Are other workers also unpaid?"
+          ]
+        },
+        "triage": {
+          "issue_type": "wages",
+          "urgency": "high",
+          "urgency_reason": "Two months of income are missing and the delay is continuing.",
+          "unknowns": [
+            "Whether the worker has given any written demand",
+            "Whether a workers' representative or union exists at the factory",
+            "The exact overtime hours"
+          ],
+          "refused": false
+        },
+        "risk": {
+          "risks": [
+            {
+              "title": "Wages tied to company funds",
+              "what_it_says": "Clause 2: wages will be paid when funds are available to the company.",
+              "why_it_matters": "Section 123 of the Bangladesh Labour Act says wages must be paid within seven working days after the end of the wage period. A clause that makes payment depend on company funds conflicts with that.",
+              "citation_id": "bla-2006-s123",
+              "quote": "সাত কর্মদিবসের মধ্যে",
+              "confidence": "high"
+            },
+            {
+              "title": "No pay slips",
+              "what_it_says": "Clause 5: no pay slip will be issued.",
+              "why_it_matters": "Without pay slips you have little proof of your wage or of what is owed. I could not find a verified provision for this in the library, so treat it as a practical risk and keep your bKash records.",
+              "citation_id": null,
+              "quote": null,
+              "confidence": "high"
+            },
+            {
+              "title": "Overtime and deductions left to the employer",
+              "what_it_says": "Clauses 3 and 4: overtime is paid at the company's discretion and wages may be deducted for any reason.",
+              "why_it_matters": "These clauses let the employer decide what you are owed after the work is done. I could not find a verified provision for this in the library; ask a legal aid provider.",
+              "citation_id": null,
+              "quote": null,
+              "confidence": "medium"
+            }
+          ]
+        },
+        "memo": {
+          "summary": "A sewing operator at a garment factory is owed wages for September and October 2026 plus overtime; the appointment letter ties payment to company funds.",
+          "facts": [
+            "Employed since 1 March 2025 as a sewing operator at BDT 13,500 per month.",
+            "Wages for September and October 2026 are unpaid.",
+            "About 40 hours of overtime per month are also unpaid.",
+            "No pay slips are issued; earlier wages were received by bKash.",
+            "About 30 co-workers are also unpaid."
+          ],
+          "next_steps": [
+            "Write down the dates and amounts owed, including overtime hours.",
+            "Save your bKash statements showing earlier salary.",
+            "Give the employer a written demand for the unpaid wages and keep a copy.",
+            "Talk to your co-workers; a joint demand is usually stronger.",
+            "Take the appointment letter and this memo to a legal aid provider or a workers' organisation.",
+            "Check any time limit with a legal aid provider."
+          ],
+          "draft_complaint": "To the HR Manager,\nExample Garments Ltd.\n\nI, Salma Example, Sewing Operator, have not received my wages for September and October 2026, a total of BDT 27,000, or payment for about 80 hours of overtime.\n\nI request payment of these wages and a pay slip for each month.\n\nSalma Example\n[date]"
+        }
+      },
+      "bn": {
+        "document": {
+          "doc_type": "নিয়োগপত্র",
+          "text_excerpt": "মাসিক মজুরি ১৩,৫০০ টাকা। কোম্পানির তহবিল থাকলে মজুরি দেওয়া হবে। ওভারটাইম কোম্পানির ইচ্ছায়। যেকোনো কারণে মজুরি কাটা যাবে। পে-স্লিপ দেওয়া হবে না।",
+          "key_terms": {
+            "parties": [
+              "উদাহরণ গার্মেন্টস লি. (মালিক)",
+              "সালমা উদাহরণ (শ্রমিক, সেলাই অপারেটর)"
+            ],
+            "amounts": [
+              "মাসিক মজুরি ১৩,৫০০ টাকা"
+            ],
+            "dates": [
+              "নিয়োগের তারিখ ১ মার্চ ২০২৫"
+            ],
+            "obligations": [
+              "তহবিল থাকলে মজুরি পরিশোধ",
+              "ওভারটাইম কোম্পানির ইচ্ছায়",
+              "পে-স্লিপ দেওয়া হবে না"
+            ]
+          }
+        },
+        "intake": {
+          "input_style": "bangla",
+          "summary": "একজন সেলাই অপারেটর দুই মাস বেতন পাননি, এবং তাকে বলা হয়েছে বায়ার টাকা দিলে বেতন দেওয়া হবে।",
+          "questions": [
+            "কোন কোন মাসের বেতন বকেয়া?",
+            "আপনার মাসিক মজুরি কত?",
+            "ওভারটাইমের টাকাও কি বকেয়া?",
+            "পে-স্লিপ বা আগের বেতনের অন্য কোনো প্রমাণ আছে?",
+            "অন্য শ্রমিকদেরও কি বেতন বকেয়া?"
+          ]
+        },
+        "triage": {
+          "issue_type": "wages",
+          "urgency": "high",
+          "urgency_reason": "দুই মাসের আয় বন্ধ এবং দেরি চলছেই।",
+          "unknowns": [
+            "লিখিতভাবে বেতন চাওয়া হয়েছে কি না",
+            "কারখানায় শ্রমিক প্রতিনিধি বা ইউনিয়ন আছে কি না",
+            "ওভারটাইমের সঠিক ঘণ্টা"
+          ],
+          "refused": false
+        },
+        "risk": {
+          "risks": [
+            {
+              "title": "মজুরি কোম্পানির তহবিলের ওপর নির্ভরশীল",
+              "what_it_says": "দফা ২: কোম্পানির তহবিল থাকলে মজুরি দেওয়া হবে।",
+              "why_it_matters": "বাংলাদেশ শ্রম আইনের ধারা ১২৩ অনুযায়ী মজুরীকাল শেষ হওয়ার পর সাত কর্মদিবসের মধ্যে মজুরী পরিশোধ করতে হবে। কোম্পানির তহবিল থাকলে মজুরি দেওয়ার শর্ত এর সাথে সাংঘর্ষিক।",
+              "citation_id": "bla-2006-s123",
+              "quote": "সাত কর্মদিবসের মধ্যে",
+              "confidence": "high"
+            },
+            {
+              "title": "পে-স্লিপ নেই",
+              "what_it_says": "দফা ৫: কোনো পে-স্লিপ দেওয়া হবে না।",
+              "why_it_matters": "পে-স্লিপ ছাড়া আপনার মজুরি ও পাওনার প্রমাণ কম থাকে। এ বিষয়ে লাইব্রেরিতে যাচাই করা কোনো বিধান পাইনি, তাই এটিকে ব্যবহারিক ঝুঁকি হিসেবে দেখুন এবং বিকাশের রেকর্ড রেখে দিন।",
+              "citation_id": null,
+              "quote": null,
+              "confidence": "high"
+            },
+            {
+              "title": "ওভারটাইম ও কর্তন মালিকের ইচ্ছাধীন",
+              "what_it_says": "দফা ৩ ও ৪: ওভারটাইম কোম্পানির ইচ্ছায় দেওয়া হবে এবং যেকোনো কারণে মজুরি কাটা যাবে।",
+              "why_it_matters": "এই শর্তে কাজ শেষ হওয়ার পর আপনার পাওনা কত হবে তা মালিক ঠিক করতে পারেন। এ বিষয়ে লাইব্রেরিতে যাচাই করা কোনো বিধান পাইনি; আইনি সহায়তা প্রদানকারীকে জিজ্ঞেস করুন।",
+              "citation_id": null,
+              "quote": null,
+              "confidence": "medium"
+            }
+          ]
+        },
+        "memo": {
+          "summary": "একটি গার্মেন্টস কারখানার সেলাই অপারেটরের সেপ্টেম্বর ও অক্টোবর ২০২৬-এর মজুরি এবং ওভারটাইম বকেয়া; নিয়োগপত্রে মজুরি কোম্পানির তহবিলের সাথে যুক্ত।",
+          "facts": [
+            "১ মার্চ ২০২৫ থেকে সেলাই অপারেটর, মাসিক মজুরি ১৩,৫০০ টাকা।",
+            "সেপ্টেম্বর ও অক্টোবর ২০২৬-এর মজুরি বকেয়া।",
+            "প্রতি মাসে প্রায় ৪০ ঘণ্টা ওভারটাইমের টাকাও বকেয়া।",
+            "পে-স্লিপ দেওয়া হয় না; আগের মজুরি বিকাশে এসেছে।",
+            "প্রায় ৩০ জন সহকর্মীরও মজুরি বকেয়া।"
+          ],
+          "next_steps": [
+            "ওভারটাইমের ঘণ্টাসহ পাওনার তারিখ ও পরিমাণ লিখে রাখুন।",
+            "আগের বেতনের বিকাশ স্টেটমেন্ট সংরক্ষণ করুন।",
+            "বকেয়া মজুরি চেয়ে মালিককে লিখিত আবেদন দিন এবং একটি কপি রাখুন।",
+            "সহকর্মীদের সাথে কথা বলুন; একসাথে আবেদন সাধারণত বেশি কার্যকর।",
+            "নিয়োগপত্র ও এই মেমো নিয়ে আইনি সহায়তা প্রদানকারী বা শ্রমিক সংগঠনের কাছে যান।",
+            "কোনো সময়সীমা আছে কি না আইনি সহায়তা প্রদানকারীর কাছে জেনে নিন।"
+          ],
+          "draft_complaint": "বরাবর,\nএইচআর ম্যানেজার,\nউদাহরণ গার্মেন্টস লি.\n\nআমি সালমা উদাহরণ, সেলাই অপারেটর। সেপ্টেম্বর ও অক্টোবর ২০২৬-এর মজুরি, মোট ২৭,০০০ টাকা, এবং প্রায় ৮০ ঘণ্টা ওভারটাইমের টাকা আমি পাইনি।\n\nএই মজুরি পরিশোধ এবং প্রতি মাসের পে-স্লিপ দেওয়ার অনুরোধ করছি।\n\nসালমা উদাহরণ\n[তারিখ]"
+        }
+      }
+    }
+  },
+  {
+    "id": "sample-consumer",
+    "issue_type": "consumer",
+    "title_en": "Wrong phone delivered, refund refused",
+    "title_bn": "ভুল ফোন ডেলিভারি, রিফান্ড দিচ্ছে না",
+    "note": "All names, addresses and amounts in this sample are made up.",
+    "text_en": "I ordered a phone from an online shop 12 days ago and paid in advance. They delivered a cheaper model. The shop says there is no return and no refund. Here is the receipt.",
+    "text_bn": "১২ দিন আগে একটি অনলাইন শপ থেকে ফোন অর্ডার করে আগেই টাকা দিয়েছি। তারা কম দামের অন্য মডেল পাঠিয়েছে। শপ বলছে রিটার্ন বা রিফান্ড নেই। এই আমার রসিদ।",
+    "document_name": "sample-receipt.txt",
+    "document_text": "SALES RECEIPT (SAMPLE - MADE-UP DETAILS)\nExampleShop BD (online). Order no. EX-0000. Date: 3 November 2026.\nCustomer: Mr. Tanvir Example.\nItem: Smartphone Model A, 8GB/128GB. Price: BDT 24,990. Paid in full by mobile wallet.\nDelivery: 5 November 2026.\nTerms: Goods once sold are not returnable. No refund under any circumstances. The shop is not responsible for model differences.\nSeller address: not stated.",
+    "demo_answers": {
+      "en": [
+        "Model B, which sells for about BDT 16,000.",
+        "Yes, the order confirmation and the box label.",
+        "By chat on 6 November; they refused.",
+        "Paid by mobile wallet; I have the transaction ID.",
+        "No address, only a page and a phone number."
+      ],
+      "bn": [
+        "মডেল বি, যার দাম প্রায় ১৬,০০০ টাকা।",
+        "হ্যাঁ, অর্ডার কনফার্মেশন ও বক্সের লেবেল আছে।",
+        "৬ নভেম্বর চ্যাটে জানিয়েছি; তারা রাজি হয়নি।",
+        "মোবাইল ওয়ালেটে দিয়েছি; ট্রানজ্যাকশন আইডি আছে।",
+        "ঠিকানা নেই, শুধু একটি পেজ ও ফোন নম্বর।"
+      ]
+    },
+    "outputs": {
+      "en": {
+        "document": {
+          "doc_type": "Sales receipt",
+          "text_excerpt": "Order EX-0000 dated 3 November 2026. Smartphone Model A, BDT 24,990, paid in full. Delivered 5 November 2026. Terms: not returnable, no refund, shop not responsible for model differences. Seller address not stated.",
+          "key_terms": {
+            "parties": [
+              "ExampleShop BD (Seller)",
+              "Tanvir Example (Buyer)"
+            ],
+            "amounts": [
+              "Price BDT 24,990, paid in full"
+            ],
+            "dates": [
+              "Order date 3 November 2026",
+              "Delivery date 5 November 2026"
+            ],
+            "obligations": [
+              "Goods not returnable",
+              "No refund under any circumstances",
+              "Shop not responsible for model differences"
+            ]
+          }
+        },
+        "intake": {
+          "input_style": "english",
+          "summary": "A buyer paid in advance for a phone online, received a cheaper model, and the shop refuses a return or refund.",
+          "questions": [
+            "Which model did you receive, and what is its price?",
+            "Do you have proof of what you ordered?",
+            "When and how did you complain to the shop?",
+            "How did you pay, and do you have the transaction record?",
+            "Does the shop have a physical address?"
+          ]
+        },
+        "triage": {
+          "issue_type": "consumer",
+          "urgency": "high",
+          "urgency_reason": "Consumer complaints have a short time limit, and 10 days have passed since delivery.",
+          "unknowns": [
+            "The shop's legal name and address",
+            "Whether the shop is registered",
+            "Whether the delivery was recorded on video"
+          ],
+          "refused": false
+        },
+        "risk": {
+          "risks": [
+            {
+              "title": "The complaint time limit is running",
+              "what_it_says": "The receipt shows delivery on 5 November 2026.",
+              "why_it_matters": "Section 60 of the Consumer Rights Protection Act says a complaint about an anti-consumer practice must be made to the Director General or an authorised officer within 30 days of the cause of action, or it will not be accepted. Delivery was on 5 November 2026, so act quickly.",
+              "citation_id": "crpa-2009-s60",
+              "quote": "৩০ (ত্রিশ) দিনের মধ্যে",
+              "confidence": "high"
+            },
+            {
+              "title": "\"No refund under any circumstances\"",
+              "what_it_says": "Terms: goods once sold are not returnable; no refund under any circumstances; the shop is not responsible for model differences.",
+              "why_it_matters": "Section 45 makes it an offence not to properly sell or supply the promised goods or service in exchange for the price paid. The shop's own \"no refund\" term does not change what it promised to deliver.",
+              "citation_id": "crpa-2009-s45",
+              "quote": "প্রতিশ্রুত পণ্য বা সেবা যথাযথভাবে বিক্রয় বা সরবরাহ না করিলে",
+              "confidence": "medium"
+            },
+            {
+              "title": "Seller address is missing",
+              "what_it_says": "Seller address: not stated.",
+              "why_it_matters": "A complaint usually needs to identify the seller. Without an address you should collect every identifier you can: page link, phone number, wallet number and transaction ID. This is a practical risk.",
+              "citation_id": null,
+              "quote": null,
+              "confidence": "high"
+            }
+          ]
+        },
+        "memo": {
+          "summary": "A buyer paid BDT 24,990 in advance for Smartphone Model A, received the cheaper Model B on 5 November 2026, and was refused a refund.",
+          "facts": [
+            "Order EX-0000 placed on 3 November 2026 for Smartphone Model A at BDT 24,990, paid in full by mobile wallet.",
+            "Model B, worth about BDT 16,000, was delivered on 5 November 2026.",
+            "The buyer complained by chat on 6 November 2026 and was refused.",
+            "The receipt states no seller address."
+          ],
+          "next_steps": [
+            "Do not use or damage the delivered phone; keep the box and label.",
+            "Screenshot the product page, the order confirmation and the chat.",
+            "Send the shop one clear written demand for the correct phone or a full refund.",
+            "Collect the shop's page link, phone number, wallet number and your transaction ID.",
+            "Prepare a complaint to the consumer rights authority and confirm the time limit with a legal aid provider."
+          ],
+          "draft_complaint": "To: ExampleShop BD\n\nOrder no. EX-0000, dated 3 November 2026.\n\nI paid BDT 24,990 for Smartphone Model A. On 5 November 2026 you delivered Model B, a different and cheaper phone. I informed you on 6 November 2026 and you refused a return.\n\nI request the correct phone or a full refund of BDT 24,990. If I do not hear from you, I will file a complaint with the consumer rights authority.\n\nTanvir Example\n[date]"
+        }
+      },
+      "bn": {
+        "document": {
+          "doc_type": "বিক্রয় রসিদ",
+          "text_excerpt": "অর্ডার EX-0000, তারিখ ৩ নভেম্বর ২০২৬। স্মার্টফোন মডেল এ, ২৪,৯৯০ টাকা, সম্পূর্ণ পরিশোধিত। ডেলিভারি ৫ নভেম্বর ২০২৬। শর্ত: পণ্য ফেরতযোগ্য নয়, রিফান্ড নেই, মডেলের পার্থক্যের জন্য শপ দায়ী নয়। বিক্রেতার ঠিকানা নেই।",
+          "key_terms": {
+            "parties": [
+              "এক্সাম্পলশপ বিডি (বিক্রেতা)",
+              "তানভীর উদাহরণ (ক্রেতা)"
+            ],
+            "amounts": [
+              "মূল্য ২৪,৯৯০ টাকা, সম্পূর্ণ পরিশোধিত"
+            ],
+            "dates": [
+              "অর্ডারের তারিখ ৩ নভেম্বর ২০২৬",
+              "ডেলিভারির তারিখ ৫ নভেম্বর ২০২৬"
+            ],
+            "obligations": [
+              "পণ্য ফেরতযোগ্য নয়",
+              "কোনো অবস্থায় রিফান্ড নেই",
+              "মডেলের পার্থক্যের জন্য শপ দায়ী নয়"
+            ]
+          }
+        },
+        "intake": {
+          "input_style": "bangla",
+          "summary": "একজন ক্রেতা অনলাইনে ফোনের জন্য আগেই টাকা দিয়ে কম দামের অন্য মডেল পেয়েছেন, এবং শপ রিটার্ন বা রিফান্ড দিচ্ছে না।",
+          "questions": [
+            "কোন মডেল পেয়েছেন, আর তার দাম কত?",
+            "কী অর্ডার করেছিলেন তার প্রমাণ আছে?",
+            "শপকে কবে ও কীভাবে জানিয়েছেন?",
+            "কীভাবে টাকা দিয়েছেন, লেনদেনের রেকর্ড আছে?",
+            "শপের কি কোনো ঠিকানা আছে?"
+          ]
+        },
+        "triage": {
+          "issue_type": "consumer",
+          "urgency": "high",
+          "urgency_reason": "ভোক্তা অভিযোগের সময়সীমা কম, আর ডেলিভারির পর ১০ দিন পার হয়েছে।",
+          "unknowns": [
+            "শপের আইনি নাম ও ঠিকানা",
+            "শপ নিবন্ধিত কি না",
+            "ডেলিভারি খোলার ভিডিও আছে কি না"
+          ],
+          "refused": false
+        },
+        "risk": {
+          "risks": [
+            {
+              "title": "অভিযোগের সময়সীমা চলছে",
+              "what_it_says": "রসিদ অনুযায়ী ডেলিভারি হয়েছে ৫ নভেম্বর ২০২৬।",
+              "why_it_matters": "ভোক্তা-অধিকার সংরক্ষণ আইনের ধারা ৬০ অনুযায়ী কারণ উদ্ভবের ৩০ দিনের মধ্যে মহাপরিচালক বা ক্ষমতাপ্রাপ্ত কর্মকর্তার কাছে অভিযোগ না করলে তা গ্রহণযোগ্য হবে না। ডেলিভারি হয়েছে ৫ নভেম্বর ২০২৬, তাই দ্রুত পদক্ষেপ নিন।",
+              "citation_id": "crpa-2009-s60",
+              "quote": "৩০ (ত্রিশ) দিনের মধ্যে",
+              "confidence": "high"
+            },
+            {
+              "title": "\"কোনো অবস্থায় রিফান্ড নেই\"",
+              "what_it_says": "শর্ত: বিক্রীত পণ্য ফেরতযোগ্য নয়; কোনো অবস্থায় রিফান্ড নেই; মডেলের পার্থক্যের জন্য শপ দায়ী নয়।",
+              "why_it_matters": "ধারা ৪৫ অনুযায়ী মূল্য নেওয়ার পর প্রতিশ্রুত পণ্য বা সেবা যথাযথভাবে বিক্রয় বা সরবরাহ না করা একটি অপরাধ। শপের নিজের \"রিফান্ড নেই\" শর্ত দিয়ে প্রতিশ্রুত পণ্য দেওয়ার দায় বদলায় না।",
+              "citation_id": "crpa-2009-s45",
+              "quote": "প্রতিশ্রুত পণ্য বা সেবা যথাযথভাবে বিক্রয় বা সরবরাহ না করিলে",
+              "confidence": "medium"
+            },
+            {
+              "title": "বিক্রেতার ঠিকানা নেই",
+              "what_it_says": "বিক্রেতার ঠিকানা: উল্লেখ নেই।",
+              "why_it_matters": "অভিযোগে সাধারণত বিক্রেতাকে শনাক্ত করতে হয়। ঠিকানা না থাকলে পেজের লিংক, ফোন নম্বর, ওয়ালেট নম্বর ও ট্রানজ্যাকশন আইডি সংগ্রহ করুন। এটি একটি ব্যবহারিক ঝুঁকি।",
+              "citation_id": null,
+              "quote": null,
+              "confidence": "high"
+            }
+          ]
+        },
+        "memo": {
+          "summary": "একজন ক্রেতা স্মার্টফোন মডেল এ-র জন্য ২৪,৯৯০ টাকা আগেই দিয়ে ৫ নভেম্বর ২০২৬-এ কম দামের মডেল বি পেয়েছেন, এবং রিফান্ড পাননি।",
+          "facts": [
+            "৩ নভেম্বর ২০২৬-এ অর্ডার EX-0000, স্মার্টফোন মডেল এ, ২৪,৯৯০ টাকা, মোবাইল ওয়ালেটে সম্পূর্ণ পরিশোধিত।",
+            "৫ নভেম্বর ২০২৬-এ প্রায় ১৬,০০০ টাকা দামের মডেল বি ডেলিভারি হয়েছে।",
+            "৬ নভেম্বর ২০২৬-এ চ্যাটে জানানো হলে শপ রাজি হয়নি।",
+            "রসিদে বিক্রেতার ঠিকানা নেই।"
+          ],
+          "next_steps": [
+            "পাওয়া ফোনটি ব্যবহার বা নষ্ট করবেন না; বক্স ও লেবেল রেখে দিন।",
+            "পণ্যের পেজ, অর্ডার কনফার্মেশন ও চ্যাটের স্ক্রিনশট নিন।",
+            "সঠিক ফোন বা পুরো টাকা ফেরত চেয়ে শপকে একটি স্পষ্ট লিখিত বার্তা পাঠান।",
+            "শপের পেজ লিংক, ফোন নম্বর, ওয়ালেট নম্বর ও আপনার ট্রানজ্যাকশন আইডি সংগ্রহ করুন।",
+            "ভোক্তা অধিকার কর্তৃপক্ষের কাছে অভিযোগ প্রস্তুত করুন এবং আইনি সহায়তা প্রদানকারীর কাছে সময়সীমা নিশ্চিত করুন।"
+          ],
+          "draft_complaint": "বরাবর: এক্সাম্পলশপ বিডি\n\nঅর্ডার নং EX-0000, তারিখ ৩ নভেম্বর ২০২৬।\n\nআমি স্মার্টফোন মডেল এ-র জন্য ২৪,৯৯০ টাকা পরিশোধ করেছি। ৫ নভেম্বর ২০২৬-এ আপনারা ভিন্ন ও কম দামের মডেল বি পাঠিয়েছেন। ৬ নভেম্বর ২০২৬-এ জানালে আপনারা ফেরত নিতে রাজি হননি।\n\nআমি সঠিক ফোন অথবা ২৪,৯৯০ টাকা সম্পূর্ণ ফেরত চাই। সাড়া না পেলে আমি ভোক্তা অধিকার কর্তৃপক্ষের কাছে অভিযোগ করব।\n\nতানভীর উদাহরণ\n[তারিখ]"
+        }
+      }
+    }
+  }
+]

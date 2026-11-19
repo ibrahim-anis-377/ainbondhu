@@ -1,0 +1,14 @@
+{
+  "name": "ainbondhu",
+  "version": "0.1.0",
+  "description": "AinBondhu - an AI legal copilot for people in Bangladesh who cannot afford a lawyer. Multi-agent pipeline grounded in a verified statute library.",
+  "private": true,
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "test": "node --test",
+    "build:preview": "node scripts/build-preview.js"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,157 @@
+/* All interface text, in English and Bangla. */
+window.AB_STRINGS = {
+  en: {
+    brand: 'AinBondhu', tagline: 'Your legal copilot',
+    disclaimer: 'General information, not legal advice.',
+    nav_home: 'Home', nav_samples: 'Sample cases', nav_library: 'Statute library', nav_help: 'Find help', nav_about: 'About', nav_impact: 'Impact', nav_partners: 'For partners', nav_arch: 'How it works',
+    menu: 'Menu', lang_switch: 'বাংলা',
+    hero_title: 'Understand your legal problem before it gets worse',
+    hero_text: 'Describe what happened or upload your agreement, job letter or receipt. AinBondhu shows the risks, ties every legal point to a checked source, and prepares your next step. Free, in Bangla or English.',
+    cta_describe: 'Describe your problem', cta_describe_sub: 'Type or speak, in Bangla, English or Banglish',
+    cta_upload: 'Upload a document', cta_upload_sub: 'Photo or PDF of an agreement, letter, pay slip or receipt',
+    scope_title: 'What AinBondhu covers now', scope_more: 'More issue types will be added.',
+    trust_1_t: 'Only checked law', trust_1_d: 'Every legal point comes from our statute library. If we cannot find one, we say so.',
+    trust_2_t: 'Shows its work', trust_2_d: 'Each answer shows which agents ran, which entries were used and what was removed.',
+    trust_3_t: 'Private by default', trust_3_d: 'Your document is used for this session only and is never stored.',
+    try_samples: 'Try a sample case', try_samples_sub: 'Made-up cases that run the full pipeline in one click.',
+    run_sample: 'Run this sample', view_doc: 'View the sample document', made_up: 'All details are made up.',
+    demo_banner: 'Demo mode: live AI is not connected yet. Sample cases show prepared output; the Retrieval and Verifier steps run for real.',
+    live_banner: 'Live AI is on.',
+    case_title: 'Your case', case_intro: 'Tell us what happened. Do not include anything you are not comfortable sharing.',
+    case_placeholder: 'Example: My landlord took three months of rent as advance and now wants to raise the rent...',
+    mic: 'Speak', mic_stop: 'Stop', mic_unsupported: 'Voice input is not supported in this browser. Try Chrome.',
+    upload_label: 'Add a document (optional)', upload_hint: 'JPG, PNG or PDF, up to 3 MB. Used for this session only.', remove: 'Remove',
+    file_too_big: 'This file is too large. Please choose a file under 3 MB.', file_type: 'Please choose a JPG, PNG, WEBP or PDF file.',
+    continue: 'Continue', need_input: 'Describe your problem or add a document first.',
+    need_live: 'Live AI is not connected on this site yet, so free-text cases cannot be analysed. Please open a sample case.',
+    q_title: 'A few questions', q_intro: 'Answer what you can. You may leave any question blank.', q_none: 'No more questions are needed.',
+    understood: 'What we understood', analyse: 'Analyse my case', start_over: 'Start a new case',
+    trail_title: 'Progress', a_intake: 'Intake', a_document: 'Document', a_triage: 'Triage', a_retrieval: 'Retrieval', a_risk: 'Risk', a_verifier: 'Verifier', a_memo: 'Memo',
+    d_intake: 'Reads your words and asks clarifying questions', d_document: 'Extracts parties, amounts, dates and obligations', d_triage: 'Classifies the issue and urgency', d_retrieval: 'Searches the statute library', d_risk: 'Flags at least three risks', d_verifier: 'Checks every citation against the library', d_memo: 'Writes the case memo and draft',
+    st_wait: 'Waiting', st_run: 'Working', st_done: 'Done', st_skip: 'Not needed', st_error: 'Stopped',
+    doc_title: 'What the document says', parties: 'Parties', amounts: 'Amounts', dates: 'Dates', obligations: 'Obligations',
+    result_title: 'Your result', issue: 'Issue type', urgency: 'Urgency', u_low: 'Low', u_medium: 'Medium', u_high: 'High', unknowns: 'Still unknown',
+    deadline_title: 'Time limit', deadline_generic: 'Check the time limit with a legal aid provider. Some remedies must be started quickly.',
+    risks_title: 'Risks we found', says: 'What it says', matters: 'Why it matters', relies: 'Relies on', quote: 'Entry wording', no_citation: 'Practical risk: no verified provision in the library', confidence: 'Confidence', c_low: 'Low', c_medium: 'Medium', c_high: 'High',
+    verified: 'Verified', unverified: 'Unverified', verified_by: 'Checked by', source: 'Source', section: 'Section',
+    memo_title: 'Case memo', memo_summary: 'Summary', memo_facts: 'Facts', memo_risks: 'Risks', memo_provisions: 'Provisions cited', memo_none: 'No verified provision was cited.', memo_evidence: 'Evidence to gather', memo_steps: 'General next steps', memo_draft: 'Draft message (you can edit this)',
+    download: 'Download as PDF', copy: 'Copy draft', copied: 'Copied', print_hint: 'Choose "Save as PDF" in the print window.',
+    how_title: 'How this answer was made', how_mode_live: 'Answered by live AI model', how_mode_demo: 'Prepared sample output (demo mode). Retrieval and Verifier ran for real.',
+    how_mode_fallback: 'The AI service was unavailable, so this sample shows its prepared output. Retrieval and Verifier ran for real.', how_mode_mixed: 'The AI service was unavailable for some steps, so those steps show the prepared sample output. Retrieval and Verifier ran for real.',
+    how_agents: 'Agents that ran', how_entries: 'Library entries used', how_matched: 'Matched on', how_none: 'No library entry matched this case.',
+    how_removed: 'What the Verifier removed', how_removed_none: 'Nothing was removed.', how_checked: 'Citations and quotes checked', reason: 'Reason',
+    feedback_q: 'Was this helpful?', yes: 'Yes', no: 'No', feedback_thanks: 'Thank you. Your rating is counted for this session only.',
+    go_help: 'Find legal help',
+    refused_title: 'We cannot help with this request', refused_text: 'AinBondhu does not help with fraud, harassment, forgery or evidence tampering.',
+    oos_title: 'This is outside what AinBondhu covers', oos_text: 'Right now AinBondhu covers house rent disputes, unpaid wages and consumer complaints. For other problems, please contact a legal aid provider.',
+    error_title: 'Something went wrong', retry: 'Try again',
+    samples_title: 'Sample cases', samples_intro: 'Three made-up cases, one for each issue type. Each includes a sample document so you can see the whole pipeline.',
+    library_title: 'Statute library', library_intro: 'This is the only law AinBondhu is allowed to use: the official Bangla text of the relevant sections, taken from the government\'s Laws of Bangladesh website (bdlaws.minlaw.gov.bd). Each section links to its source and records who on the team has checked it.',
+    library_count: 'sections', library_unverified_warn: 'The text was copied automatically from the official website and a few old font-conversion errors were corrected. A team member still needs to check each section against the official source.',
+    official_pending: 'Official text · team check pending', official_bn_note: 'The official text of this Act is in Bangla. AinBondhu explains it in English in your results.',
+    help_title: 'Find help', help_intro: 'AinBondhu prepares you; a person helps you. The entries below are placeholders until the team has confirmed real providers.', help_verify: 'Verify before use',
+    help_1: 'Government legal aid office (placeholder)', help_1d: 'Free legal aid for people who cannot afford a lawyer. Contact details to be added after verification.',
+    help_2: 'NGO legal aid service (placeholder)', help_2d: 'Legal advice and mediation from a non-profit organisation. Contact details to be added after verification.',
+    help_3: 'University legal aid clinic (placeholder)', help_3d: 'Supervised law students who help with documents and advice. Contact details to be added after verification.',
+    help_4: 'Lawyer referral (placeholder)', help_4d: 'Referral to a verified lawyer for cases that need representation. Contact details to be added after verification.',
+    help_bring: 'What to bring', help_bring_d: 'Your case memo, the original documents, your ID, and any receipts or messages.',
+    about_title: 'About AinBondhu',
+    impact_title: 'Impact dashboard', impact_demo: 'Demo data', impact_demo_note: 'These numbers are sample data for the prototype. They will be replaced with real pilot numbers.',
+    impact_cases: 'Cases helped', impact_rating: 'Helpfulness rating', impact_by_type: 'Cases by issue type', impact_zero: 'Answers with unverified citations shown as verified', impact_session: 'Ratings given in this session',
+    partners_title: 'For legal-aid partners',
+    arch_title: 'How AinBondhu works', arch_intro: 'Seven agents handle each case in order. Five use an AI model. Retrieval and Verifier are plain code, so the model cannot talk its way past them.',
+    arch_library: 'Statute library', arch_ai: 'Uses AI model', arch_code: 'Plain code, no AI', arch_user: 'You', arch_out: 'Risk cards and case memo',
+    footer: 'AinBondhu is a prototype built for the International AI Builders Congress 2026.'
+  },
+  bn: {
+    brand: 'আইনবন্ধু', tagline: 'আপনার আইনি সহকারী',
+    disclaimer: 'এটি সাধারণ তথ্য, আইনি পরামর্শ নয়।',
+    nav_home: 'হোম', nav_samples: 'নমুনা কেস', nav_library: 'আইন লাইব্রেরি', nav_help: 'সহায়তা খুঁজুন', nav_about: 'পরিচিতি', nav_impact: 'প্রভাব', nav_partners: 'পার্টনারদের জন্য', nav_arch: 'কীভাবে কাজ করে',
+    menu: 'মেনু', lang_switch: 'English',
+    hero_title: 'সমস্যা বড় হওয়ার আগেই আপনার আইনি অবস্থা বুঝে নিন',
+    hero_text: 'কী হয়েছে লিখুন, অথবা চুক্তিপত্র, নিয়োগপত্র বা রসিদ আপলোড করুন। আইনবন্ধু ঝুঁকিগুলো দেখায়, প্রতিটি আইনি তথ্য যাচাই করা উৎসের সাথে মেলায়, এবং আপনার পরের ধাপ তৈরি করে দেয়। বিনামূল্যে, বাংলা বা ইংরেজিতে।',
+    cta_describe: 'সমস্যা লিখুন', cta_describe_sub: 'লিখুন বা বলুন, বাংলা, ইংরেজি বা বাংলিশে',
+    cta_upload: 'ডকুমেন্ট আপলোড করুন', cta_upload_sub: 'চুক্তিপত্র, চিঠি, পে-স্লিপ বা রসিদের ছবি বা পিডিএফ',
+    scope_title: 'আইনবন্ধু এখন যা নিয়ে কাজ করে', scope_more: 'আরও বিষয় পরে যোগ হবে।',
+    trust_1_t: 'শুধু যাচাই করা আইন', trust_1_d: 'প্রতিটি আইনি তথ্য আমাদের আইন লাইব্রেরি থেকে আসে। না পেলে আমরা তা স্পষ্ট বলি।',
+    trust_2_t: 'কাজের হিসাব দেখায়', trust_2_d: 'প্রতিটি উত্তরে দেখা যায় কোন এজেন্ট কাজ করেছে, কোন তথ্য ব্যবহার হয়েছে, কী বাদ গেছে।',
+    trust_3_t: 'গোপনীয়তা আগে', trust_3_d: 'আপনার ডকুমেন্ট শুধু এই সেশনে ব্যবহার হয়, কখনো সংরক্ষণ করা হয় না।',
+    try_samples: 'একটি নমুনা কেস দেখুন', try_samples_sub: 'বানানো কেস, এক ক্লিকে পুরো প্রক্রিয়া দেখা যায়।',
+    run_sample: 'এই নমুনা চালান', view_doc: 'নমুনা ডকুমেন্ট দেখুন', made_up: 'সব তথ্য বানানো।',
+    demo_banner: 'ডেমো মোড: লাইভ এআই এখনো যুক্ত হয়নি। নমুনা কেসে আগে থেকে তৈরি উত্তর দেখানো হয়; অনুসন্ধান ও যাচাই ধাপ দুটি সত্যিই চলে।',
+    live_banner: 'লাইভ এআই চালু আছে।',
+    case_title: 'আপনার কেস', case_intro: 'কী হয়েছে আমাদের বলুন। যা জানাতে স্বস্তি পান না তা লিখবেন না।',
+    case_placeholder: 'উদাহরণ: বাড়িওয়ালা তিন মাসের ভাড়া অগ্রিম নিয়েছেন, এখন আবার ভাড়া বাড়াতে চান...',
+    mic: 'বলুন', mic_stop: 'থামান', mic_unsupported: 'এই ব্রাউজারে ভয়েস ইনপুট চলে না। ক্রোম ব্যবহার করে দেখুন।',
+    upload_label: 'ডকুমেন্ট যোগ করুন (ঐচ্ছিক)', upload_hint: 'JPG, PNG বা PDF, সর্বোচ্চ ৩ এমবি। শুধু এই সেশনে ব্যবহার হবে।', remove: 'সরান',
+    file_too_big: 'ফাইলটি বেশি বড়। ৩ এমবির কম ফাইল দিন।', file_type: 'JPG, PNG, WEBP বা PDF ফাইল দিন।',
+    continue: 'এগিয়ে যান', need_input: 'আগে সমস্যা লিখুন বা একটি ডকুমেন্ট যোগ করুন।',
+    need_live: 'এই সাইটে লাইভ এআই এখনো যুক্ত হয়নি, তাই নিজের লেখা কেস বিশ্লেষণ করা যাচ্ছে না। অনুগ্রহ করে একটি নমুনা কেস খুলুন।',
+    q_title: 'কয়েকটি প্রশ্ন', q_intro: 'যা জানেন উত্তর দিন। কোনো প্রশ্ন ফাঁকা রাখতে পারেন।', q_none: 'আর কোনো প্রশ্নের দরকার নেই।',
+    understood: 'আমরা যা বুঝেছি', analyse: 'আমার কেস বিশ্লেষণ করুন', start_over: 'নতুন কেস শুরু করুন',
+    trail_title: 'অগ্রগতি', a_intake: 'গ্রহণ', a_document: 'ডকুমেন্ট', a_triage: 'শ্রেণিবিন্যাস', a_retrieval: 'অনুসন্ধান', a_risk: 'ঝুঁকি', a_verifier: 'যাচাই', a_memo: 'মেমো',
+    d_intake: 'আপনার কথা পড়ে প্রয়োজনীয় প্রশ্ন করে', d_document: 'পক্ষ, টাকার অঙ্ক, তারিখ ও দায়িত্ব বের করে', d_triage: 'সমস্যার ধরন ও জরুরি অবস্থা ঠিক করে', d_retrieval: 'আইন লাইব্রেরিতে খোঁজে', d_risk: 'অন্তত তিনটি ঝুঁকি চিহ্নিত করে', d_verifier: 'প্রতিটি উদ্ধৃতি লাইব্রেরির সাথে মিলিয়ে দেখে', d_memo: 'কেস মেমো ও খসড়া লেখে',
+    st_wait: 'অপেক্ষায়', st_run: 'কাজ চলছে', st_done: 'সম্পন্ন', st_skip: 'দরকার হয়নি', st_error: 'থেমে গেছে',
+    doc_title: 'ডকুমেন্টে যা আছে', parties: 'পক্ষ', amounts: 'টাকার অঙ্ক', dates: 'তারিখ', obligations: 'দায়িত্ব',
+    result_title: 'আপনার ফলাফল', issue: 'সমস্যার ধরন', urgency: 'জরুরি অবস্থা', u_low: 'কম', u_medium: 'মাঝারি', u_high: 'বেশি', unknowns: 'এখনো অজানা',
+    deadline_title: 'সময়সীমা', deadline_generic: 'সময়সীমা সম্পর্কে আইনি সহায়তা প্রদানকারীর কাছে জেনে নিন। কিছু প্রতিকার দ্রুত শুরু করতে হয়।',
+    risks_title: 'আমরা যে ঝুঁকিগুলো পেয়েছি', says: 'যা বলা আছে', matters: 'কেন গুরুত্বপূর্ণ', relies: 'যার ভিত্তিতে', quote: 'লাইব্রেরির ভাষা', no_citation: 'ব্যবহারিক ঝুঁকি: লাইব্রেরিতে যাচাই করা বিধান নেই', confidence: 'নিশ্চয়তা', c_low: 'কম', c_medium: 'মাঝারি', c_high: 'বেশি',
+    verified: 'যাচাইকৃত', unverified: 'যাচাই হয়নি', verified_by: 'যাচাই করেছেন', source: 'উৎস', section: 'ধারা',
+    memo_title: 'কেস মেমো', memo_summary: 'সারসংক্ষেপ', memo_facts: 'তথ্য', memo_risks: 'ঝুঁকি', memo_provisions: 'উল্লিখিত বিধান', memo_none: 'কোনো যাচাই করা বিধান উল্লেখ করা হয়নি।', memo_evidence: 'যে প্রমাণ সংগ্রহ করবেন', memo_steps: 'সাধারণ পরবর্তী ধাপ', memo_draft: 'খসড়া বার্তা (আপনি বদলাতে পারেন)',
+    download: 'পিডিএফ ডাউনলোড', copy: 'খসড়া কপি করুন', copied: 'কপি হয়েছে', print_hint: 'প্রিন্ট উইন্ডোতে "Save as PDF" বেছে নিন।',
+    how_title: 'এই উত্তর কীভাবে তৈরি হলো', how_mode_live: 'লাইভ এআই মডেল উত্তর দিয়েছে', how_mode_demo: 'আগে থেকে তৈরি নমুনা উত্তর (ডেমো মোড)। অনুসন্ধান ও যাচাই সত্যিই চলেছে।',
+    how_mode_fallback: 'এআই সেবা পাওয়া যায়নি, তাই এই নমুনায় আগে থেকে তৈরি উত্তর দেখানো হচ্ছে। অনুসন্ধান ও যাচাই সত্যিই চলেছে।', how_mode_mixed: 'কিছু ধাপে এআই সেবা পাওয়া যায়নি, তাই সেই ধাপগুলোতে আগে থেকে তৈরি নমুনা উত্তর দেখানো হচ্ছে। অনুসন্ধান ও যাচাই সত্যিই চলেছে।',
+    how_agents: 'যে এজেন্টগুলো কাজ করেছে', how_entries: 'ব্যবহৃত লাইব্রেরি তথ্য', how_matched: 'যে কারণে মিলেছে', how_none: 'এই কেসের সাথে লাইব্রেরির কোনো তথ্য মেলেনি।',
+    how_removed: 'যাচাইকারী যা বাদ দিয়েছে', how_removed_none: 'কিছুই বাদ দেওয়া হয়নি।', how_checked: 'যতগুলো উদ্ধৃতি যাচাই হয়েছে', reason: 'কারণ',
+    feedback_q: 'এটি কি কাজে লেগেছে?', yes: 'হ্যাঁ', no: 'না', feedback_thanks: 'ধন্যবাদ। আপনার মতামত শুধু এই সেশনে গণনা করা হয়।',
+    go_help: 'আইনি সহায়তা খুঁজুন',
+    refused_title: 'এই অনুরোধে আমরা সাহায্য করতে পারি না', refused_text: 'আইনবন্ধু প্রতারণা, হয়রানি, জালিয়াতি বা প্রমাণ নষ্ট করার কাজে সাহায্য করে না।',
+    oos_title: 'এটি আইনবন্ধুর বর্তমান পরিধির বাইরে', oos_text: 'এখন আইনবন্ধু বাড়ি ভাড়ার বিরোধ, বকেয়া মজুরি ও ভোক্তা অভিযোগ নিয়ে কাজ করে। অন্য সমস্যার জন্য আইনি সহায়তা প্রদানকারীর সাথে যোগাযোগ করুন।',
+    error_title: 'কিছু একটা সমস্যা হয়েছে', retry: 'আবার চেষ্টা করুন',
+    samples_title: 'নমুনা কেস', samples_intro: 'তিনটি বানানো কেস, প্রতিটি ধরনের একটি করে। প্রতিটিতে একটি নমুনা ডকুমেন্ট আছে, যাতে পুরো প্রক্রিয়া দেখা যায়।',
+    library_title: 'আইন লাইব্রেরি', library_intro: 'আইনবন্ধু শুধু এই আইনগুলোই ব্যবহার করতে পারে: সরকারের Laws of Bangladesh ওয়েবসাইট (bdlaws.minlaw.gov.bd) থেকে নেওয়া প্রাসঙ্গিক ধারাগুলোর সরকারি বাংলা পাঠ। প্রতিটি ধারার সাথে উৎসের লিংক এবং দলের কে যাচাই করেছেন তা লেখা থাকে।',
+    library_count: 'টি ধারা', library_unverified_warn: 'পাঠটি সরকারি ওয়েবসাইট থেকে স্বয়ংক্রিয়ভাবে নেওয়া হয়েছে এবং কিছু পুরোনো ফন্ট-রূপান্তরের ভুল ঠিক করা হয়েছে। দলের একজন সদস্যকে এখনো প্রতিটি ধারা সরকারি উৎসের সাথে মিলিয়ে দেখতে হবে।',
+    official_pending: 'সরকারি পাঠ · দলের যাচাই বাকি', official_bn_note: 'এই আইনের সরকারি পাঠ বাংলায়।',
+    help_title: 'সহায়তা খুঁজুন', help_intro: 'আইনবন্ধু আপনাকে প্রস্তুত করে; সাহায্য করেন একজন মানুষ। দল প্রকৃত সেবাদাতা নিশ্চিত না করা পর্যন্ত নিচের তথ্যগুলো প্লেসহোল্ডার।', help_verify: 'ব্যবহারের আগে যাচাই করুন',
+    help_1: 'সরকারি আইনি সহায়তা অফিস (প্লেসহোল্ডার)', help_1d: 'যারা আইনজীবীর খরচ দিতে পারেন না তাদের জন্য বিনামূল্যে আইনি সহায়তা। যাচাইয়ের পর যোগাযোগের তথ্য যোগ হবে।',
+    help_2: 'এনজিও আইনি সহায়তা সেবা (প্লেসহোল্ডার)', help_2d: 'অলাভজনক সংস্থার আইনি পরামর্শ ও সালিশ। যাচাইয়ের পর যোগাযোগের তথ্য যোগ হবে।',
+    help_3: 'বিশ্ববিদ্যালয়ের আইনি সহায়তা ক্লিনিক (প্লেসহোল্ডার)', help_3d: 'তত্ত্বাবধানে থাকা আইনের শিক্ষার্থীরা ডকুমেন্ট ও পরামর্শে সাহায্য করেন। যাচাইয়ের পর যোগাযোগের তথ্য যোগ হবে।',
+    help_4: 'আইনজীবী রেফারেল (প্লেসহোল্ডার)', help_4d: 'যে কেসে প্রতিনিধিত্ব দরকার তার জন্য যাচাই করা আইনজীবীর কাছে পাঠানো। যাচাইয়ের পর যোগাযোগের তথ্য যোগ হবে।',
+    help_bring: 'সাথে যা নেবেন', help_bring_d: 'আপনার কেস মেমো, মূল ডকুমেন্ট, পরিচয়পত্র, এবং রসিদ বা মেসেজ।',
+    about_title: 'আইনবন্ধু সম্পর্কে',
+    impact_title: 'প্রভাব ড্যাশবোর্ড', impact_demo: 'ডেমো ডেটা', impact_demo_note: 'এই সংখ্যাগুলো প্রোটোটাইপের নমুনা ডেটা। প্রকৃত পাইলটের সংখ্যা এলে এগুলো বদলে দেওয়া হবে।',
+    impact_cases: 'সহায়তা পাওয়া কেস', impact_rating: 'উপকারিতার রেটিং', impact_by_type: 'ধরন অনুযায়ী কেস', impact_zero: 'যাচাই না করা উদ্ধৃতি যাচাইকৃত হিসেবে দেখানো হয়েছে', impact_session: 'এই সেশনে দেওয়া রেটিং',
+    partners_title: 'আইনি সহায়তা পার্টনারদের জন্য',
+    arch_title: 'আইনবন্ধু কীভাবে কাজ করে', arch_intro: 'প্রতিটি কেসে সাতটি এজেন্ট পরপর কাজ করে। পাঁচটি এআই মডেল ব্যবহার করে। অনুসন্ধান ও যাচাই সাধারণ কোড, তাই মডেল এগুলোকে পাশ কাটাতে পারে না।',
+    arch_library: 'আইন লাইব্রেরি', arch_ai: 'এআই মডেল ব্যবহার করে', arch_code: 'সাধারণ কোড, এআই নয়', arch_user: 'আপনি', arch_out: 'ঝুঁকি কার্ড ও কেস মেমো',
+    footer: 'আইনবন্ধু একটি প্রোটোটাইপ, International AI Builders Congress 2026-এর জন্য তৈরি।'
+  }
+};
+
+/* Longer page content. */
+window.AB_PAGES = {
+  about: {
+    en: '<h2>What it is</h2><p>AinBondhu helps people who cannot afford a lawyer understand a legal document or problem, see the risks in it, and prepare their next step. Version 1 covers house rent disputes, unpaid wages and consumer complaints.</p>' +
+      '<h2>Limits</h2><ul><li>It gives general information, not legal advice. It does not replace a lawyer or a legal aid provider.</li><li>It can only use the law in its statute library. If the library has no entry for a point, it says so.</li><li>The law text is copied automatically from the government website. Until a team member has checked a section against the official source, it is marked "team check pending".</li><li>AI can misread a document, especially a blurry photo or handwriting. Always check the extracted terms against your own document.</li></ul>' +
+      '<h2>Privacy</h2><ul><li>Your text and document are sent to the server only to produce your result, and are not saved by AinBondhu.</li><li>There are no accounts. Feedback ratings are counted in your browser session only.</li><li>In live mode your text and document are processed by the AI provider named below. Do not upload anything you are not comfortable sharing.</li><li>Sample cases use made-up details.</li></ul>' +
+      '<h2>Responsible AI policy</h2><ul><li>The AI may cite only entries in the statute library. A separate Verifier, written as plain code, checks every citation and removes what it cannot match.</li><li>Every result shows how it was made: agents run, entries used, claims removed.</li><li>AinBondhu refuses to help with fraud, harassment, forgery or evidence tampering.</li><li>No names, phone numbers or addresses of real providers are shown until the team has verified them.</li></ul>' +
+      '<h2>Data and model sources</h2><ul><li>Law: the official Bangla text of the relevant sections of the Premises Rent Control Act 1991, the Consumer Rights Protection Act 2009 and the Bangladesh Labour Act 2006, from the Laws of Bangladesh website (bdlaws.minlaw.gov.bd), with a source link for each section.</li><li>AI model: Google Gemini, called from the server. The key is never sent to your browser.</li><li>Sample cases and dashboard numbers: made up by the team and labelled as such.</li></ul>',
+    bn: '<h2>এটি কী</h2><p>যারা আইনজীবীর খরচ দিতে পারেন না, আইনবন্ধু তাদের আইনি ডকুমেন্ট বা সমস্যা বুঝতে, ঝুঁকি দেখতে এবং পরের ধাপ তৈরি করতে সাহায্য করে। প্রথম সংস্করণে বাড়ি ভাড়ার বিরোধ, বকেয়া মজুরি ও ভোক্তা অভিযোগ আছে।</p>' +
+      '<h2>সীমাবদ্ধতা</h2><ul><li>এটি সাধারণ তথ্য দেয়, আইনি পরামর্শ নয়। এটি আইনজীবী বা আইনি সহায়তা প্রদানকারীর বিকল্প নয়।</li><li>এটি শুধু নিজের আইন লাইব্রেরির আইন ব্যবহার করতে পারে। কোনো বিষয়ে লাইব্রেরিতে তথ্য না থাকলে তা বলে দেয়।</li><li>আইনের পাঠ সরকারি ওয়েবসাইট থেকে স্বয়ংক্রিয়ভাবে নেওয়া। দলের কেউ সরকারি উৎসের সাথে মিলিয়ে না দেখা পর্যন্ত প্রতিটি ধারা "দলের যাচাই বাকি" হিসেবে চিহ্নিত থাকে।</li><li>এআই ডকুমেন্ট ভুল পড়তে পারে, বিশেষ করে ঝাপসা ছবি বা হাতের লেখা। বের করা তথ্য নিজের ডকুমেন্টের সাথে মিলিয়ে নিন।</li></ul>' +
+      '<h2>গোপনীয়তা</h2><ul><li>আপনার লেখা ও ডকুমেন্ট শুধু ফলাফল তৈরির জন্য সার্ভারে যায়; আইনবন্ধু তা সংরক্ষণ করে না।</li><li>কোনো অ্যাকাউন্ট নেই। রেটিং শুধু আপনার ব্রাউজার সেশনে গণনা হয়।</li><li>লাইভ মোডে আপনার লেখা ও ডকুমেন্ট নিচে উল্লিখিত এআই সেবাদাতা প্রক্রিয়া করে। যা জানাতে স্বস্তি পান না তা আপলোড করবেন না।</li><li>নমুনা কেসের সব তথ্য বানানো।</li></ul>' +
+      '<h2>দায়িত্বশীল এআই নীতি</h2><ul><li>এআই শুধু আইন লাইব্রেরির তথ্য উদ্ধৃত করতে পারে। সাধারণ কোডে লেখা আলাদা একটি যাচাইকারী প্রতিটি উদ্ধৃতি মিলিয়ে দেখে এবং যা মেলে না তা বাদ দেয়।</li><li>প্রতিটি ফলাফলে দেখানো হয় কীভাবে তা তৈরি হলো: কোন এজেন্ট চলেছে, কোন তথ্য ব্যবহার হয়েছে, কী বাদ গেছে।</li><li>আইনবন্ধু প্রতারণা, হয়রানি, জালিয়াতি বা প্রমাণ নষ্ট করার কাজে সাহায্য করে না।</li><li>দল যাচাই না করা পর্যন্ত কোনো প্রকৃত সেবাদাতার নাম, ফোন বা ঠিকানা দেখানো হয় না।</li></ul>' +
+      '<h2>ডেটা ও মডেলের উৎস</h2><ul><li>আইন: বাড়ী ভাড়া নিয়ন্ত্রণ আইন ১৯৯১, ভোক্তা-অধিকার সংরক্ষণ আইন ২০০৯ ও বাংলাদেশ শ্রম আইন ২০০৬-এর প্রাসঙ্গিক ধারাগুলোর সরকারি বাংলা পাঠ, Laws of Bangladesh ওয়েবসাইট (bdlaws.minlaw.gov.bd) থেকে; প্রতিটি ধারার উৎস লিংক আছে।</li><li>এআই মডেল: Google Gemini, সার্ভার থেকে ব্যবহার হয়। এর চাবি কখনো আপনার ব্রাউজারে পাঠানো হয় না।</li><li>নমুনা কেস ও ড্যাশবোর্ডের সংখ্যা: দলের বানানো এবং সেভাবেই চিহ্নিত।</li></ul>'
+  },
+  partners: {
+    en: '<p>AinBondhu is free for citizens. Organisations that help people with legal problems can use it to screen and prepare cases faster.</p>' +
+      '<h2>Who it is for</h2><ul><li><strong>NGOs and legal-aid groups:</strong> clients arrive with a one-page memo, extracted document terms and gathered evidence, so staff time goes to advice.</li><li><strong>Worker organisations:</strong> members check appointment letters and wage problems on their phones, in Bangla.</li><li><strong>University legal clinics:</strong> students review AI-prepared memos under supervision and help verify the statute library.</li></ul>' +
+      '<h2>What partners get</h2><ul><li>An intake link or QR code for your clients.</li><li>A partner dashboard: case counts by issue type, urgency and area, with no personal data.</li><li>A say in which statutes and issue types are added next.</li></ul>' +
+      '<h2>Pricing outline</h2><table><thead><tr><th>Plan</th><th>For</th><th>Price</th></tr></thead><tbody><tr><td>Citizen</td><td>Anyone with a legal problem</td><td>Free</td></tr><tr><td>Partner dashboard</td><td>NGOs, legal-aid groups, worker organisations</td><td>Monthly fee, to be set with pilot partners</td></tr><tr><td>Lawyer referral</td><td>Verified lawyers who accept referred cases</td><td>Referral fee per accepted case, to be set</td></tr></tbody></table>' +
+      '<p>Prices are an outline for the prototype and will be fixed with the first pilot partners.</p>',
+    bn: '<p>নাগরিকদের জন্য আইনবন্ধু বিনামূল্যে। যেসব সংস্থা মানুষকে আইনি সমস্যায় সাহায্য করে, তারা এটি দিয়ে দ্রুত কেস বাছাই ও প্রস্তুত করতে পারে।</p>' +
+      '<h2>কাদের জন্য</h2><ul><li><strong>এনজিও ও আইনি সহায়তা সংস্থা:</strong> সেবাগ্রহীতা এক পাতার মেমো, ডকুমেন্টের মূল তথ্য ও প্রমাণ নিয়ে আসেন, তাই কর্মীদের সময় পরামর্শে ব্যয় হয়।</li><li><strong>শ্রমিক সংগঠন:</strong> সদস্যরা নিজের ফোনে বাংলায় নিয়োগপত্র ও মজুরির সমস্যা যাচাই করতে পারেন।</li><li><strong>বিশ্ববিদ্যালয়ের আইনি ক্লিনিক:</strong> শিক্ষার্থীরা তত্ত্বাবধানে এআই-প্রস্তুত মেমো পর্যালোচনা করেন এবং আইন লাইব্রেরি যাচাইয়ে সাহায্য করেন।</li></ul>' +
+      '<h2>পার্টনাররা যা পান</h2><ul><li>সেবাগ্রহীতাদের জন্য ইনটেক লিংক বা কিউআর কোড।</li><li>পার্টনার ড্যাশবোর্ড: ধরন, জরুরি অবস্থা ও এলাকা অনুযায়ী কেসের সংখ্যা, কোনো ব্যক্তিগত তথ্য ছাড়া।</li><li>এরপর কোন আইন ও বিষয় যোগ হবে সে বিষয়ে মতামত দেওয়ার সুযোগ।</li></ul>' +
+      '<h2>মূল্যের রূপরেখা</h2><table><thead><tr><th>প্ল্যান</th><th>কার জন্য</th><th>মূল্য</th></tr></thead><tbody><tr><td>নাগরিক</td><td>আইনি সমস্যায় থাকা যে কেউ</td><td>বিনামূল্যে</td></tr><tr><td>পার্টনার ড্যাশবোর্ড</td><td>এনজিও, আইনি সহায়তা সংস্থা, শ্রমিক সংগঠন</td><td>মাসিক ফি, পাইলট পার্টনারদের সাথে ঠিক হবে</td></tr><tr><td>আইনজীবী রেফারেল</td><td>যাচাই করা আইনজীবী, যারা রেফার করা কেস নেন</td><td>প্রতি গৃহীত কেসে রেফারেল ফি, পরে ঠিক হবে</td></tr></tbody></table>' +
+      '<p>এই মূল্য প্রোটোটাইপের জন্য একটি রূপরেখা; প্রথম পাইলট পার্টনারদের সাথে চূড়ান্ত হবে।</p>'
+  }
+};
