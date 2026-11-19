@@ -12,14 +12,14 @@
 | Final Submission | 24:00, Thursday 24 December 2026 | Not started |
 | Congress Day | Saturday 26 December 2026, Daffodil International University, Ashulia | |
 
-Items in [square brackets] are filled in after deployment.
+Items in [square brackets] are still to be filled in.
 
 ## Links
 
 | Link | Value |
 |---|---|
-| Prototype (public, no login) | [Vercel link] |
-| Repository | [GitHub link] |
+| Prototype (public, no login) | https://ainbondhu-sigma.vercel.app |
+| Repository | https://github.com/ibrahim-anis-377/ainbondhu |
 | Demo video (required for the final submission) | [YouTube link, public or unlisted] |
 
 ## Preliminary Submission fields
@@ -62,7 +62,9 @@ Bangla and English
 Primary: low- and middle-income tenants, wage workers and consumers in Bangladeshi cities, starting with Dhaka. Secondary: legal-aid organisations and NGOs that want to screen and prepare cases faster.
 
 ### Prototype link or repo
-[Vercel link] and [GitHub link]. Both open without login.
+Prototype: https://ainbondhu-sigma.vercel.app
+Repository: https://github.com/ibrahim-anis-377/ainbondhu
+Both open without login.
 
 ### Team roles
 
@@ -91,8 +93,8 @@ No mentor has been assigned yet. We plan to request one through the platform, an
 
 | Item | Status |
 |---|---|
-| Working demo link | [After deployment] |
-| GitHub repository | [After publishing] |
+| Working demo link | Done: https://ainbondhu-sigma.vercel.app |
+| GitHub repository | Done: https://github.com/ibrahim-anis-377/ainbondhu |
 | YouTube demo, 3 to 5 minutes, public or unlisted | Not started. Suggested order: problem, solution walkthrough, live demo on a real document, team, call to action |
 | Tooling and IDE disclosure | Ready below |
 | MCP usage disclosure | Ready below |
@@ -116,9 +118,9 @@ The application does not use MCP servers and is not an MCP client.
 
 ## Before submitting: checklist
 
-- [ ] Push the project to a public GitHub repository (check that `.env` is not included)
-- [ ] Deploy to Vercel with the environment variables in [backend.md](backend.md)
-- [ ] Open the Vercel link in a private window and run a sample case
-- [ ] Paste the Vercel and GitHub links into this file and the form
+- [x] Push the project to a public GitHub repository (check that `.env` is not included)
+- [x] Deploy to Vercel with the environment variables in [backend.md](backend.md)
+- [x] Open the Vercel link in a private window and run a sample case
+- [ ] Paste the Vercel and GitHub links into the form
 - [ ] Every member's profile is 100% complete; the team has a logo
 - [ ] Team leader clicks Submit before 23:59 on 20 November; links show PASS

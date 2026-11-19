@@ -43,7 +43,7 @@ stateDiagram-v2
 ```
 
 1. **Input.** A text box with a Speak button, and an optional document upload. Sample cases fill these in.
-2. **Questions.** Shows what was understood, the extracted document terms, and up to 5 questions. Sample cases pre-fill the answers.
+2. **Questions.** Shows what was understood, the extracted document terms, and up to 5 questions. In demo mode, sample cases pre-fill the prepared answers. With live AI, the AI writes its own questions, so they start blank and the sample's facts are sent to the AI as separate question-and-answer pairs.
 3. **Running.** A progress trail shows each agent as Waiting, Working, Done, Not needed or Stopped.
 4. **Result:**
    - Issue type and urgency, with what is still unknown.

@@ -66,13 +66,14 @@
     setTrail(agent, 'run');
     return apiAgent(agent, Object.assign({ lang: c.lang, sample_id: c.sample_id }, input)).then(function (res) {
       if (state.c !== c) throw new Error('cancelled');
+      c.lastLive = !!res.live;
       if (agent !== 'retrieval' && agent !== 'verifier') { c.aiSteps++; if (res.live) c.liveSteps++; c.live = c.liveSteps === c.aiSteps; c.mixed = c.liveSteps > 0 && !c.live; if (res.model) c.model = res.model; }
       setTrail(agent, 'done');
       return res.output;
     }, function (err) { if (state.c === c) setTrail(agent, 'error'); throw err; });
   }
   function fail(err) { var c = state.c; if (!c || err.message === 'cancelled') return; c.busy = false; c.error = err.message || String(err); c.stage = c.stage === 'input' || c.stage === 'questions' ? c.stage : 'error'; render(); }
-  function qa() { var c = state.c; return (c.intake ? c.intake.questions : []).map(function (q, i) { return { q: q, a: c.answers[i] || '' }; }).filter(function (p) { return p.a; }); }
+  function qa() { var c = state.c; return (c.sampleFacts || []).concat((c.intake ? c.intake.questions : []).map(function (q, i) { return { q: q, a: c.answers[i] || '' }; }).filter(function (p) { return p.a; })).slice(0, 10); }
 
   function startCase() {
     var c = state.c;
@@ -88,7 +89,10 @@
       .then(function (intake) {
         c.intake = intake; c.lang = intake.reply_lang || c.lang; c.busy = false;
         var sample = sampleById(c.sample_id);
-        c.answers = intake.questions.map(function (q, i) { return sample && sample.demo_answers ? (sample.demo_answers[c.lang] || [])[i] || '' : ''; });
+        // Prepared sample questions get the sample's prepared answers. When live AI wrote its own
+        // questions, the sample's facts are sent as their own question-and-answer pairs instead.
+        c.sampleFacts = sample && c.lastLive && sample.demo_qa ? (sample.demo_qa[c.lang] || []) : [];
+        c.answers = intake.questions.map(function (q, i) { return sample && !c.lastLive && sample.demo_answers ? (sample.demo_answers[c.lang] || [])[i] || '' : ''; });
         c.stage = 'questions'; render();
         if (!intake.questions.length) analyse();
       }).catch(fail);
@@ -248,7 +252,7 @@
     if (c.stage === 'questions') {
       var qs = c.intake.questions;
       return head + err + '<div class="card flat"><h2>' + esc(t('understood')) + '</h2><p style="margin:0">' + esc(c.intake.summary) + '</p></div>' + documentCard(c.document) +
-        '<div class="card"><h2>' + esc(t('q_title')) + '</h2>' + (qs.length ? '<p class="muted">' + esc(t('q_intro')) + '</p>' + qs.map(function (q, i) {
+        '<div class="card"><h2>' + esc(t('q_title')) + '</h2>' + (qs.length ? '<p class="muted">' + esc(t('q_intro')) + '</p>' + ((c.sampleFacts || []).length ? '<p class="banner info">' + esc(t('q_sample_live')) + '</p>' : '') + qs.map(function (q, i) {
           return '<div class="q"><label for="q' + i + '">' + (i + 1) + '. ' + esc(q) + '</label><input type="text" id="q' + i + '" data-answer="' + i + '" value="' + esc(c.answers[i] || '') + '"></div>';
         }).join('') : '<p>' + esc(t('q_none')) + '</p>') +
         '<button class="btn" data-act="analyse"' + (c.busy ? ' disabled' : '') + '>' + esc(t('analyse')) + '</button></div>' + trailCard() + restart;
