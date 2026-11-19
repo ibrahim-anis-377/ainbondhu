@@ -112,3 +112,9 @@ table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .
 details.act > summary { font-size: 1.05rem; }
 details.act > summary .chip { margin-left: 6px; font-size: .8rem; }
 details.act .card.flat { margin-bottom: 10px; }
+
+.helplines { list-style: none; padding: 0; margin: .6em 0 1em; }
+.helplines li { display: flex; gap: 12px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid #eeebe2; margin: 0; }
+.helplines li:last-child { border-bottom: 0; }
+.hl-num { font-size: 1.25rem; font-weight: 700; min-width: 64px; text-decoration: none; color: var(--primary-dark); }
+.banner.err .hl-num { color: var(--red); }

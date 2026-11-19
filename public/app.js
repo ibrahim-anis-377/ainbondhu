@@ -267,6 +267,20 @@
     }).join('') + '</div>';
   }
 
+  /* Official national helplines (checked 19 November 2026). */
+  var HELPLINES = [
+    { num: '999', key: 'hl_999' }, { num: '109', key: 'hl_109' }, { num: '1098', key: 'hl_1098' }, { num: '16430', key: 'hl_16430' }
+  ];
+  var TOPIC_LINES = { violence: ['999', '109', '1098', '16430'], family: ['16430', '109'], land: ['16430'], police: ['16430', '999'], other: ['16430'] };
+  function helplineList(nums) {
+    return '<ul class="helplines">' + HELPLINES.filter(function (h) { return !nums || nums.indexOf(h.num) !== -1; }).map(function (h) {
+      return '<li><a class="hl-num" href="tel:' + h.num + '">' + h.num + '</a><span>' + esc(t(h.key)) + '</span></li>';
+    }).join('') + '</ul>';
+  }
+  function dangerBanner() {
+    return '<div class="banner err" role="alert"><strong>' + esc(t('danger_title')) + '</strong><br>' + esc(t('danger_text')) + helplineList(['999', '109', '1098']) + '</div>';
+  }
+
   /* ---------- pages ---------- */
   function pageHome() {
     return '<section class="hero"><h1>' + esc(t('hero_title')) + '</h1><p>' + esc(t('hero_text')) + '</p></section>' + modeBanner() +
@@ -306,7 +320,14 @@
     }
     if (c.stage === 'running') return head + trailCard();
     if (c.stage === 'refused') return head + '<div class="card"><h2>' + esc(t('refused_title')) + '</h2><p>' + esc(t('refused_text')) + '</p>' + (c.triage.refusal_reason ? '<p class="muted">' + esc(c.triage.refusal_reason) + '</p>' : '') + '</div>' + restart;
-    if (c.stage === 'oos') return head + '<div class="card"><h2>' + esc(t('oos_title')) + '</h2><p>' + esc(t('oos_text')) + '</p><a class="btn" href="#help">' + esc(t('go_help')) + '</a></div>' + restart;
+    if (c.stage === 'oos') {
+      var topic = (c.triage && c.triage.topic) || 'other';
+      return head + (c.triage && c.triage.danger ? dangerBanner() : '') +
+        '<div class="card"><h2>' + esc(t('oos_' + topic + '_title')) + '</h2><p>' + esc(t('oos_' + topic + '_text')) + '</p>' +
+        '<h3>' + esc(t('oos_steps')) + '</h3>' + list(t('oos_' + topic + '_steps').split('|')) +
+        '<h3>' + esc(t('hl_title')) + '</h3>' + helplineList(TOPIC_LINES[topic] || TOPIC_LINES.other) +
+        '<p class="small muted">' + esc(t('hl_note')) + '</p><a class="btn" href="#help">' + esc(t('go_help')) + '</a></div>' + restart;
+    }
     if (c.stage === 'error') return head + '<div class="banner err" role="alert"><strong>' + esc(t('error_title')) + '</strong><br>' + esc(c.error) + '</div>' + trailCard() + '<p><button class="btn" data-act="analyse">' + esc(t('retry')) + '</button></p>' + restart;
     return pageResult(c) + restart;
   }
@@ -346,7 +367,7 @@
     var fb = '<section class="card flat no-print center"><p style="margin-bottom:.6em"><strong>' + esc(t('feedback_q')) + '</strong></p>' + (c.rated === null
       ? '<div class="row" style="justify-content:center"><button class="btn ghost small" data-act="rate" data-v="1">' + esc(t('yes')) + '</button><button class="btn ghost small" data-act="rate" data-v="0">' + esc(t('no')) + '</button></div>'
       : '<p class="muted" style="margin:0">' + esc(t('feedback_thanks')) + '</p>') + '</section>';
-    return '<h1 class="no-print">' + esc(t('result_title')) + '</h1>' + (c.live ? '' : '<div class="banner demo">' + esc(t(c.mixed ? 'how_mode_mixed' : (state.lib.live ? 'how_mode_fallback' : 'how_mode_demo'))) + '</div>') +
+    return '<h1 class="no-print">' + esc(t('result_title')) + '</h1>' + (tr.danger ? dangerBanner() : '') + (c.live ? '' : '<div class="banner demo">' + esc(t(c.mixed ? 'how_mode_mixed' : (state.lib.live ? 'how_mode_fallback' : 'how_mode_demo'))) + '</div>') +
       '<section class="card no-print"><div class="row"><span class="chip">' + esc(t('issue')) + ': ' + esc(issueLabel(tr.issue_type)) + '</span><span class="chip ' + urgencyClass + '">' + esc(t('urgency')) + ': ' + esc(t('u_' + tr.urgency)) + '</span></div>' +
       '<p style="margin-top:.8em">' + esc(tr.urgency_reason) + '</p>' + (tr.unknowns.length ? '<h3>' + esc(t('unknowns')) + '</h3>' + list(tr.unknowns) : '') + '</section>' +
       '<section class="card no-print"><h2>' + esc(t('deadline_title')) + '</h2>' + deadline + '</section>' +
@@ -379,7 +400,7 @@
       }).join('');
   }
   function pageHelp() {
-    return '<h1>' + esc(t('help_title')) + '</h1><p>' + esc(t('help_intro')) + '</p>' + [1, 2, 3, 4].map(function (n) {
+    return '<h1>' + esc(t('help_title')) + '</h1><p>' + esc(t('help_intro')) + '</p>' + '<div class="card"><h2>' + esc(t('hl_title')) + '</h2>' + helplineList() + '<p class="small muted" style="margin:0">' + esc(t('hl_note')) + '</p></div>' + [1, 2, 3, 4].map(function (n) {
       return '<div class="card"><p><span class="chip amber">' + esc(t('help_verify')) + '</span></p><h2>' + esc(t('help_' + n)) + '</h2><p style="margin:0">' + esc(t('help_' + n + 'd')) + '</p></div>';
     }).join('') + '<div class="card flat"><h2>' + esc(t('help_bring')) + '</h2><p style="margin:0">' + esc(t('help_bring_d')) + '</p></div>';
   }

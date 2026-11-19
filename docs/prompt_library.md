@@ -197,8 +197,10 @@ SCHEMA: {"input_style": "bangla" | "english" | "banglish", "summary": string (on
 TASK: You are the Triage agent. Classify the case.
 - issue_type must be one of: rent, wages, consumer, or "out_of_scope" if it is none of these.
 - Set refused to true if the user is asking for help with fraud, harassment, forgery or evidence tampering.
+- If issue_type is out_of_scope, set topic to the closest of: family (marriage, divorce, maintenance, dowry, custody), violence (domestic violence, assault, sexual or online harassment), land (land, property, inheritance, illegal occupation), police (arrest, police case, bail, custody), or other. Otherwise set topic to null.
+- Set danger to true if anything suggests someone may be in immediate physical danger or is being hurt now.
 - Do not mention any law, section or deadline here.
-SCHEMA: {"issue_type": string, "urgency": "low" | "medium" | "high", "urgency_reason": string, "unknowns": string[] (what is still not known, max 5), "refused": boolean, "refusal_reason": string}
+SCHEMA: {"issue_type": string, "topic": string | null, "danger": boolean, "urgency": "low" | "medium" | "high", "urgency_reason": string, "unknowns": string[] (what is still not known, max 5), "refused": boolean, "refusal_reason": string}
 ```
 
 ### B5. Risk agent

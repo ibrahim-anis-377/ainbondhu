@@ -55,6 +55,8 @@ stateDiagram-v2
    - Download as PDF (the browser's print dialog, with print styles showing only the memo) and Copy draft.
    - "How this answer was made": whether live AI or prepared sample output was used and which model, the agents that ran, the sections retrieved and why they matched, and everything the Verifier removed and why.
    - "Was this helpful?" rating.
+5. **Outside the three issue types:** Triage also names the closest topic (family, violence, land, police or other). The page explains that the topic is coming soon, lists practical next steps that need no legal citation, and shows the relevant national helplines.
+6. **Possible danger:** if Triage flags that someone may be in immediate danger, a red banner with 999, 109 and 1098 appears above everything else, whatever the issue type.
 
 ## Sign-in and My cases
 
